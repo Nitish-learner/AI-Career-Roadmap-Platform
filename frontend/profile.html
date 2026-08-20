@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Profile | CareerAI</title>
+
+    <link rel="stylesheet" href="css/profile.css">
+</head>
+
+<body>
+
+    <div class="profile-page">
+
+        <div class="profile-container">
+
+            <!-- Header -->
+
+            <div class="page-header">
+
+                <a href="dashboard.html" class="back-link">
+                    ← Dashboard
+                </a>
+
+                <h1>Complete Your Profile</h1>
+
+                <p>
+                    Tell us about yourself so we can create a personalized career roadmap.
+                </p>
+
+            </div>
+
+
+            <!-- Profile Form -->
+
+            <div class="profile-card">
+
+                <div class="section-title">
+
+                    <h2>Basic Information</h2>
+
+                    <p>Your academic details</p>
+
+                </div>
+
+
+                <form id="profileForm">
+
+
+                    <!-- Name + Email -->
+
+                    <div class="form-row">
+
+                        <div class="input-group">
+
+                            <label for="fullName">
+                                Full Name
+                            </label>
+
+                            <input
+                                type="text"
+                                id="fullName"
+                                placeholder="Enter your full name"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="input-group">
+
+                            <label for="email">
+                                Email Address
+                            </label>
+
+                            <input
+                                type="email"
+                                id="email"
+                                placeholder="Enter your email"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- College + Course -->
+
+                    <div class="form-row">
+
+                        <div class="input-group">
+
+                            <label for="college">
+                                College / University
+                            </label>
+
+                            <input
+                                type="text"
+                                id="college"
+                                placeholder="Enter your college name"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="input-group">
+
+                            <label for="course">
+                                Course
+                            </label>
+
+                            <select id="course" required>
+
+                                <option value="">
+                                    Select your course
+                                </option>
+
+                                <option value="BCA">
+                                    BCA
+                                </option>
+
+                                <option value="B.Tech">
+                                    B.Tech
+                                </option>
+
+                                <option value="MCA">
+                                    MCA
+                                </option>
+
+                                <option value="M.Tech">
+                                    M.Tech
+                                </option>
+
+                                <option value="Other">
+                                    Other
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Year + Graduation -->
+
+                    <div class="form-row">
+
+                        <div class="input-group">
+
+                            <label for="studyYear">
+                                Current Year
+                            </label>
+
+                            <select id="studyYear" required>
+
+                                <option value="">
+                                    Select year
+                                </option>
+
+                                <option value="1">
+                                    1st Year
+                                </option>
+
+                                <option value="2">
+                                    2nd Year
+                                </option>
+
+                                <option value="3">
+                                    3rd Year
+                                </option>
+
+                                <option value="4">
+                                    4th Year
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="input-group">
+
+                            <label for="graduationYear">
+                                Expected Graduation
+                            </label>
+
+                            <select id="graduationYear" required>
+
+                                <option value="">
+                                    Select year
+                                </option>
+
+                                <option value="2027">
+                                    2027
+                                </option>
+
+                                <option value="2028">
+                                    2028
+                                </option>
+
+                                <option value="2029">
+                                    2029
+                                </option>
+
+                                <option value="2030">
+                                    2030
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Career Target -->
+
+                    <div class="career-section">
+
+                        <div class="section-title">
+
+                            <h2>Career Goal</h2>
+
+                            <p>
+                                Select the domain you want to prepare for.
+                            </p>
+
+                        </div>
+
+
+                        <div class="career-options">
+
+
+                            <label class="career-option">
+
+                                <input
+                                    type="radio"
+                                    name="career"
+                                    value="Java Full Stack"
+                                    required
+                                >
+
+                                <div class="career-content">
+
+                                    <span class="career-icon">
+                                        ☕
+                                    </span>
+
+                                    <div>
+
+                                        <strong>
+                                            Java Full Stack
+                                        </strong>
+
+                                        <small>
+                                            Java • Spring Boot • Web
+                                        </small>
+
+                                    </div>
+
+                                </div>
+
+                            </label>
+
+
+                            <label class="career-option">
+
+                                <input
+                                    type="radio"
+                                    name="career"
+                                    value="Python Development"
+                                >
+
+                                <div class="career-content">
+
+                                    <span class="career-icon">
+                                        🐍
+                                    </span>
+
+                                    <div>
+
+                                        <strong>
+                                            Python Development
+                                        </strong>
+
+                                        <small>
+                                            Python • Django • APIs
+                                        </small>
+
+                                    </div>
+
+                                </div>
+
+                            </label>
+
+
+                            <label class="career-option">
+
+                                <input
+                                    type="radio"
+                                    name="career"
+                                    value="Data Analytics"
+                                >
+
+                                <div class="career-content">
+
+                                    <span class="career-icon">
+                                        📊
+                                    </span>
+
+                                    <div>
+
+                                        <strong>
+                                            Data Analytics
+                                        </strong>
+
+                                        <small>
+                                            Excel • SQL • Power BI
+                                        </small>
+
+                                    </div>
+
+                                </div>
+
+                            </label>
+
+
+                            <label class="career-option">
+
+                                <input
+                                    type="radio"
+                                    name="career"
+                                    value="AI ML"
+                                >
+
+                                <div class="career-content">
+
+                                    <span class="career-icon">
+                                        🤖
+                                    </span>
+
+                                    <div>
+
+                                        <strong>
+                                            AI / Machine Learning
+                                        </strong>
+
+                                        <small>
+                                            Python • ML • AI
+                                        </small>
+
+                                    </div>
+
+                                </div>
+
+                            </label>
+
+
+                            <label class="career-option">
+
+                                <input
+                                    type="radio"
+                                    name="career"
+                                    value="Cyber Security"
+                                >
+
+                                <div class="career-content">
+
+                                    <span class="career-icon">
+                                        🔐
+                                    </span>
+
+                                    <div>
+
+                                        <strong>
+                                            Cyber Security
+                                        </strong>
+
+                                        <small>
+                                            Security • Networks • Linux
+                                        </small>
+
+                                    </div>
+
+                                </div>
+
+                            </label>
+
+
+                            <label class="career-option">
+
+                                <input
+                                    type="radio"
+                                    name="career"
+                                    value="Other"
+                                >
+
+                                <div class="career-content">
+
+                                    <span class="career-icon">
+                                        🎯
+                                    </span>
+
+                                    <div>
+
+                                        <strong>
+                                            Other Career
+                                        </strong>
+
+                                        <small>
+                                            Choose another career path
+                                        </small>
+
+                                    </div>
+
+                                </div>
+
+                            </label>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Submit -->
+
+                    <div class="form-footer">
+
+                        <button
+                            type="submit"
+                            class="save-btn"
+                        >
+                            Save & Continue →
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script>
+
+        const profileForm = document.getElementById("profileForm");
+
+        profileForm.addEventListener("submit", function(event) {
+
+            event.preventDefault();
+
+            alert("Profile saved successfully!");
+
+            window.location.href = "dashboard.html";
+
+        });
+
+    </script>
+
+</body>
+
+</html>

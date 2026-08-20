@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Create Account | AI Career Roadmap</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/auth.css">
+</head>
+
+<body>
+
+    <!-- Animated Background -->
+    <div class="background">
+        <div class="orb orb-one"></div>
+        <div class="orb orb-two"></div>
+        <div class="orb orb-three"></div>
+
+        <div class="grid"></div>
+    </div>
+
+    <!-- Main Container -->
+    <main class="auth-container">
+
+        <!-- Left Section -->
+        <section class="intro-section">
+
+            <div class="brand">
+                <div class="brand-icon">AI</div>
+
+                <div>
+                    <h2>Career<span>AI</span></h2>
+                    <p>Career Readiness Platform</p>
+                </div>
+            </div>
+
+            <div class="intro-content">
+
+                <span class="badge">🚀 Build Your Future</span>
+
+                <h1>
+                    Turn Your Skills
+                    <span>Into Your Career.</span>
+                </h1>
+
+                <p>
+                    Learn, practice, build real-world projects,
+                    prepare for interviews and discover how
+                    job-ready you really are.
+                </p>
+
+                <div class="features">
+
+                    <div class="feature">
+                        <div class="feature-icon">🧭</div>
+                        <div>
+                            <strong>Personalized Roadmap</strong>
+                            <span>Follow a career path designed for you.</span>
+                        </div>
+                    </div>
+
+                    <div class="feature">
+                        <div class="feature-icon">💻</div>
+                        <div>
+                            <strong>Real-World Projects</strong>
+                            <span>Build projects that strengthen your portfolio.</span>
+                        </div>
+                    </div>
+
+                    <div class="feature">
+                        <div class="feature-icon">🤖</div>
+                        <div>
+                            <strong>AI Career Guidance</strong>
+                            <span>Get smarter guidance for your career journey.</span>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <p class="copyright">
+                © 2026 CareerAI. Build skills. Build your future.
+            </p>
+
+        </section>
+
+
+        <!-- Right Section -->
+        <section class="form-section">
+
+            <div class="form-card">
+
+                <div class="form-header">
+                    <span class="mobile-logo">CareerAI</span>
+
+                    <h2>Create your account</h2>
+
+                    <p>
+                        Start your personalized career journey today.
+                    </p>
+                </div>
+
+
+                <form id="registerForm">
+
+                    <!-- Name -->
+                    <div class="input-group">
+
+                        <label for="name">Full Name</label>
+
+                        <div class="input-wrapper">
+                            <span class="input-icon">👤</span>
+
+                            <input
+                                type="text"
+                                id="name"
+                                name="name"
+                                placeholder="Enter your full name"
+                                autocomplete="name"
+                                required
+                            >
+                        </div>
+
+                    </div>
+
+
+                    <!-- Email -->
+                    <div class="input-group">
+
+                        <label for="email">Email Address</label>
+
+                        <div class="input-wrapper">
+                            <span class="input-icon">✉️</span>
+
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                placeholder="you@example.com"
+                                autocomplete="email"
+                                required
+                            >
+                        </div>
+
+                    </div>
+
+
+                    <!-- College -->
+                    <div class="input-group">
+
+                        <label for="college">College / University</label>
+
+                        <div class="input-wrapper">
+                            <span class="input-icon">🎓</span>
+
+                            <input
+                                type="text"
+                                id="college"
+                                name="college"
+                                placeholder="Enter your college name"
+                                required
+                            >
+                        </div>
+
+                    </div>
+
+
+                    <!-- Course + Year -->
+                    <div class="form-row">
+
+                        <div class="input-group">
+
+                            <label for="course">Course</label>
+
+                            <div class="input-wrapper">
+                                <span class="input-icon">📚</span>
+
+                                <select id="course" name="course" required>
+                                    <option value="">Select course</option>
+                                    <option value="BCA">BCA</option>
+                                    <option value="B.Tech">B.Tech</option>
+                                    <option value="MCA">MCA</option>
+                                    <option value="M.Tech">M.Tech</option>
+                                    <option value="B.Sc">B.Sc</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+
+                        </div>
+
+
+                        <div class="input-group">
+
+                            <label for="year">Year</label>
+
+                            <div class="input-wrapper">
+                                <span class="input-icon">📅</span>
+
+                                <select id="year" name="year" required>
+                                    <option value="">Select</option>
+                                    <option value="1st Year">1st Year</option>
+                                    <option value="2nd Year">2nd Year</option>
+                                    <option value="3rd Year">3rd Year</option>
+                                    <option value="4th Year">4th Year</option>
+                                    <option value="Final Year">Final Year</option>
+                                </select>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Password -->
+                    <div class="input-group">
+
+                        <label for="password">Password</label>
+
+                        <div class="input-wrapper">
+                            <span class="input-icon">🔒</span>
+
+                            <input
+                                type="password"
+                                id="password"
+                                name="password"
+                                placeholder="Create a strong password"
+                                autocomplete="new-password"
+                                required
+                            >
+
+                            <button
+                                type="button"
+                                class="password-toggle"
+                                id="togglePassword"
+                                aria-label="Show password"
+                            >
+                                👁
+                            </button>
+                        </div>
+
+                    </div>
+
+
+                    <!-- Terms -->
+                    <label class="terms">
+
+                        <input type="checkbox" id="terms" required>
+
+                        <span>
+                            I agree to the
+                            <a href="#">Terms & Conditions</a>
+                            and
+                            <a href="#">Privacy Policy</a>.
+                        </span>
+
+                    </label>
+
+
+                    <!-- Register Button -->
+                    <button type="submit" class="submit-btn">
+
+                        <span>Create Account</span>
+
+                        <span class="arrow">→</span>
+
+                    </button>
+
+
+                    <!-- Login -->
+                    <div class="login-link">
+
+                        Already have an account?
+
+                        <a href="login.html">
+                            Login
+                        </a>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script src="js/auth.js"></script>
+
+</body>
+</html>

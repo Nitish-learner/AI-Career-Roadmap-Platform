@@ -1,0 +1,295 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f7f9fc;
+    color: #172033;
+}
+
+.profile-page {
+    min-height: 100vh;
+    padding: 45px 20px;
+}
+
+.profile-container {
+    width: 100%;
+    max-width: 900px;
+    margin: auto;
+}
+
+/* Header */
+
+.page-header {
+    margin-bottom: 25px;
+}
+
+.back-link {
+    display: inline-block;
+    margin-bottom: 18px;
+
+    color: #2563eb;
+    text-decoration: none;
+
+    font-size: 12px;
+}
+
+.page-header h1 {
+    font-size: 30px;
+    color: #172033;
+    margin-bottom: 8px;
+}
+
+.page-header p {
+    font-size: 13px;
+    color: #737d8f;
+}
+
+/* Card */
+
+.profile-card {
+    background: #ffffff;
+
+    border: 1px solid #e3e8f0;
+    border-radius: 10px;
+
+    padding: 35px;
+
+    box-shadow: 0 8px 25px rgba(20, 40, 80, 0.05);
+}
+
+/* Section */
+
+.section-title {
+    margin-bottom: 22px;
+}
+
+.section-title h2 {
+    font-size: 17px;
+    color: #172033;
+    margin-bottom: 5px;
+}
+
+.section-title p {
+    font-size: 11px;
+    color: #8992a2;
+}
+
+/* Form */
+
+.form-row {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 18px;
+
+    margin-bottom: 18px;
+}
+
+.input-group label {
+    display: block;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    color: #374151;
+
+    margin-bottom: 7px;
+}
+
+.input-group input,
+.input-group select {
+    width: 100%;
+    height: 45px;
+
+    padding: 0 13px;
+
+    border: 1px solid #d8dee8;
+
+    border-radius: 6px;
+
+    background: #ffffff;
+
+    color: #172033;
+
+    font-size: 12px;
+
+    outline: none;
+}
+
+.input-group input::placeholder {
+    color: #a0a7b4;
+}
+
+.input-group input:focus,
+.input-group select:focus {
+    border-color: #2563eb;
+
+    box-shadow:
+        0 0 0 2px rgba(37, 99, 235, 0.08);
+}
+
+/* Career */
+
+.career-section {
+    border-top: 1px solid #edf0f4;
+
+    margin-top: 28px;
+
+    padding-top: 28px;
+}
+
+.career-options {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 12px;
+}
+
+.career-option {
+    position: relative;
+
+    cursor: pointer;
+}
+
+.career-option input {
+    position: absolute;
+
+    opacity: 0;
+}
+
+.career-content {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 15px;
+
+    border: 1px solid #e0e5ed;
+
+    border-radius: 8px;
+
+    transition: 0.2s;
+}
+
+.career-option:hover .career-content {
+    border-color: #b9cdf7;
+
+    background: #fafcff;
+}
+
+.career-option input:checked + .career-content {
+    border-color: #2563eb;
+
+    background: #f1f5ff;
+}
+
+.career-icon {
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: #f1f5ff;
+
+    border-radius: 7px;
+
+    font-size: 17px;
+}
+
+.career-content strong {
+    display: block;
+
+    font-size: 12px;
+
+    color: #263247;
+
+    margin-bottom: 4px;
+}
+
+.career-content small {
+    display: block;
+
+    font-size: 9px;
+
+    color: #8992a2;
+}
+
+/* Footer */
+
+.form-footer {
+    display: flex;
+
+    justify-content: flex-end;
+
+    margin-top: 30px;
+
+    padding-top: 20px;
+
+    border-top: 1px solid #edf0f4;
+}
+
+.save-btn {
+    padding: 11px 20px;
+
+    border: none;
+
+    border-radius: 6px;
+
+    background: #2563eb;
+
+    color: #ffffff;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.save-btn:hover {
+    background: #1d4ed8;
+}
+
+/* Responsive */
+
+@media (max-width: 700px) {
+
+    .profile-page {
+        padding: 25px 15px;
+    }
+
+    .profile-card {
+        padding: 25px 20px;
+    }
+
+    .form-row,
+    .career-options {
+        grid-template-columns: 1fr;
+    }
+
+    .page-header h1 {
+        font-size: 25px;
+    }
+
+    .form-footer {
+        justify-content: stretch;
+    }
+
+    .save-btn {
+        width: 100%;
+    }
+}

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Practice | CareerAI</title>
+
+    <link rel="stylesheet" href="css/practice.css">
+</head>
+
+<body>
+
+    <main class="practice-container">
+
+        <div class="practice-header">
+
+            <span>CAREERAI • PRACTICE</span>
+
+            <h1 id="practiceTitle">
+                Practice Questions
+            </h1>
+
+            <p id="practiceDescription">
+                Test your knowledge before moving to the next lesson.
+            </p>
+
+        </div>
+
+
+        <div class="progress-section">
+
+            <span id="questionCount">
+                Question 1 of 5
+            </span>
+
+            <div class="progress">
+                <div id="progressBar"></div>
+            </div>
+
+        </div>
+
+
+        <div class="question-card">
+
+            <h2 id="question">
+                Loading question...
+            </h2>
+
+            <div id="options" class="options"></div>
+
+            <p id="result"></p>
+
+            <button id="nextQuestion">
+                Next Question →
+            </button>
+
+        </div>
+
+
+        <div class="score-card" id="scoreCard">
+
+            <h2>🎉 Practice Completed!</h2>
+
+            <p>
+                Your Score
+            </p>
+
+            <strong id="finalScore">
+                0 / 5
+            </strong>
+
+            <button id="backToLesson">
+                Back to Lesson
+            </button>
+
+        </div>
+
+    </main>
+
+
+    <script src="js/practice-data.js"></script>
+    <script src="js/practice.js"></script>
+
+</body>
+
+</html>

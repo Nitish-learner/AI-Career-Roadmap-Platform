@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard | CareerAI</title>
+
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+
+<body>
+
+    <!-- Sidebar -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+            <div class="logo-icon">AI</div>
+
+            <div>
+                <h2>Career<span>AI</span></h2>
+                <small>Career Platform</small>
+            </div>
+        </div>
+
+
+        <nav class="sidebar-menu">
+
+            <a href="#" class="active">
+                <span>⌂</span>
+                Dashboard
+            </a>
+
+            <a href="#">
+                <span>🧭</span>
+                My Roadmap
+            </a>
+
+            <a href="#">
+                <span>📚</span>
+                Learning
+            </a>
+
+            <a href="#">
+                <span>📝</span>
+                Assessments
+            </a>
+
+            <a href="#">
+                <span>💻</span>
+                Projects
+            </a>
+
+            <a href="#">
+                <span>📄</span>
+                Resume Builder
+            </a>
+
+            <a href="#">
+                <span>🎤</span>
+                Interview Prep
+            </a>
+
+        </nav>
+
+
+        <div class="sidebar-bottom">
+
+            <a href="#">
+                ⚙ Settings
+            </a>
+
+            <a href="login.html">
+                ↪ Logout
+            </a>
+
+        </div>
+
+    </aside>
+
+
+    <!-- Main Content -->
+
+    <main class="main-content">
+
+
+        <!-- Topbar -->
+
+        <header class="topbar">
+
+            <div>
+                <h1>Good Morning, Student 👋</h1>
+
+                <p>
+                    Continue your journey towards your dream career.
+                </p>
+            </div>
+
+
+            <div class="profile">
+
+                <div class="profile-avatar">
+                    S
+                </div>
+
+                <div>
+    <strong id="profileName">Student</strong>
+    <small id="profileEmail">Career Learner</small>
+    <small id="profileEducation"></small>
+</div>
+
+            </div>
+
+        </header>
+
+
+        <!-- Career Status -->
+
+        <section class="career-card">
+
+            <div>
+
+                <span class="small-title">
+                    YOUR CURRENT CAREER PATH
+                </span>
+
+                <h2 id="careerGoal">
+                    Career Not Selected
+                </h2>
+
+                <p>
+                    Build strong skills in Java, Spring Boot,
+                    databases, frontend and real-world development.
+                </p>
+
+                <button id="continueRoadmapBtn">
+                    Continue Roadmap →
+                </button>
+
+            </div>
+
+
+            <div class="readiness">
+
+                <div class="circle">
+                    <strong>32%</strong>
+                </div>
+
+                <span>
+                    Career Readiness
+                </span>
+
+            </div>
+
+        </section>
+
+
+        <!-- Statistics -->
+
+        <section class="stats">
+
+            <div class="stat-card">
+
+                <div class="stat-icon blue">
+                    📚
+                </div>
+
+                <div>
+                    <span>Skills Completed</span>
+                    <strong>4 / 12</strong>
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon green">
+                    📝
+                </div>
+
+                <div>
+                    <span>Assessments</span>
+                    <strong>3 Completed</strong>
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon purple">
+                    💻
+                </div>
+
+                <div>
+                    <span>Projects</span>
+                    <strong>1 / 4</strong>
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon orange">
+                    🎯
+                </div>
+
+                <div>
+                    <span>Overall Progress</span>
+                    <strong>32%</strong>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Dashboard Grid -->
+
+        <section class="dashboard-grid">
+
+
+            <!-- Roadmap -->
+
+            <div class="dashboard-card">
+
+                <div class="card-header">
+
+                    <div>
+                        <h3>Your Learning Roadmap</h3>
+
+                        <p>
+                            Continue where you left off.
+                        </p>
+                    </div>
+
+                    <a href="#">
+                        View All
+                    </a>
+
+                </div>
+
+
+                <div class="roadmap-item">
+
+                    <div class="roadmap-number active">
+                        01
+                    </div>
+
+                    <div class="roadmap-content">
+
+                        <strong>Java Programming</strong>
+
+                        <span>
+                            OOP • Collections • Exception Handling
+                        </span>
+
+                        <div class="progress">
+                            <div style="width: 80%"></div>
+                        </div>
+
+                    </div>
+
+                    <span class="percentage">
+                        80%
+                    </span>
+
+                </div>
+
+
+                <div class="roadmap-item">
+
+                    <div class="roadmap-number">
+                        02
+                    </div>
+
+                    <div class="roadmap-content">
+
+                        <strong>SQL & Database</strong>
+
+                        <span>
+                            MySQL • Queries • Database Design
+                        </span>
+
+                        <div class="progress">
+                            <div style="width: 45%"></div>
+                        </div>
+
+                    </div>
+
+                    <span class="percentage">
+                        45%
+                    </span>
+
+                </div>
+
+
+                <div class="roadmap-item">
+
+                    <div class="roadmap-number">
+                        03
+                    </div>
+
+                    <div class="roadmap-content">
+
+                        <strong>Spring Boot</strong>
+
+                        <span>
+                            REST API • Spring • Backend
+                        </span>
+
+                        <div class="progress">
+                            <div style="width: 15%"></div>
+                        </div>
+
+                    </div>
+
+                    <span class="percentage">
+                        15%
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- Right Card -->
+
+            <div class="dashboard-card">
+
+                <div class="card-header">
+
+                    <div>
+                        <h3>Next Steps</h3>
+
+                        <p>
+                            Recommended for you.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="next-item">
+
+                    <div class="next-icon">
+                        📖
+                    </div>
+
+                    <div>
+                        <strong>
+                            Complete Java OOP
+                        </strong>
+
+                        <span>
+                            3 lessons remaining
+                        </span>
+                    </div>
+
+                    <button>
+                        Start
+                    </button>
+
+                </div>
+
+
+                <div class="next-item">
+
+                    <div class="next-icon">
+                        📝
+                    </div>
+
+                    <div>
+                        <strong>
+                            Take Java Assessment
+                        </strong>
+
+                        <span>
+                            15 questions
+                        </span>
+                    </div>
+
+                    <button>
+                        Start
+                    </button>
+
+                </div>
+
+
+                <div class="next-item">
+
+                    <div class="next-icon">
+                        💻
+                    </div>
+
+                    <div>
+                        <strong>
+                            Build Your First Project
+                        </strong>
+
+                        <span>
+                            Beginner level
+                        </span>
+                    </div>
+
+                    <button>
+                        Start
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+</body>
+
+<script>
+    // ===============================
+    // GET LOGGED-IN USER
+    // ===============================
+
+    const userData = localStorage.getItem("careerAIUser");
+
+    // User login nahi hai
+    if (!userData) {
+
+        window.location.href = "login.html";
+
+    } else {
+
+        const user = JSON.parse(userData);
+
+        // ===============================
+        // BASIC USER DATA
+        // ===============================
+
+        const userName = user.name || "Student";
+
+        document.querySelector(".topbar h1").textContent =
+            `Welcome, ${userName} 👋`;
+
+        document.querySelector(".profile strong").textContent =
+            userName;
+
+        document.querySelector(".profile small").textContent =
+            user.email;
+
+        document.querySelector(".profile-avatar").textContent =
+            userName.charAt(0).toUpperCase();
+
+
+        // ===============================
+        // GET PROFILE FROM BACKEND
+        // ===============================
+
+        fetch(`http://127.0.0.1:5000/api/auth/profile/${user.id}`)
+            .then(response => response.json())
+            .then(data => {
+
+                if (data.user) {
+
+    const profile = data.user;
+
+    const careerGoal = document.getElementById("careerGoal");
+
+if (careerGoal) {
+    careerGoal.textContent =
+        profile.career_goal || "Career Not Selected";
+}
+
+    console.log("Profile loaded:", profile);
+
+    console.log("College:", profile.college);
+    console.log("Course:", profile.course);
+    console.log("Year:", profile.year);
+
+    // Show profile information
+    const profileName = document.getElementById("profileName");
+    const profileEmail = document.getElementById("profileEmail");
+    const profileEducation = document.getElementById("profileEducation");
+
+    if (profileName) {
+        profileName.textContent = profile.name;
+    }
+
+    if (profileEmail) {
+        profileEmail.textContent = profile.email;
+    }
+
+    if (profileEducation) {
+        profileEducation.textContent =
+            `${profile.college} • ${profile.course} • ${profile.year}`;
+    }
+}
+
+            })
+            .catch(error => {
+
+                console.error(
+                    "Profile loading error:",
+                    error
+                );
+
+            });
+    }
+
+
+    // ===============================
+    // LOGOUT
+    // ===============================
+
+    const logoutLink =
+        document.querySelector(
+            ".sidebar-bottom a[href='login.html']"
+        );
+
+    if (logoutLink) {
+
+        logoutLink.addEventListener("click", function (event) {
+
+            event.preventDefault();
+
+            localStorage.removeItem("careerAIUser");
+
+            window.location.href = "login.html";
+
+        });
+    }
+
+    // ===============================
+// DYNAMIC ROADMAP
+// ===============================
+
+const continueRoadmapBtn =
+    document.getElementById("continueRoadmapBtn");
+
+if (continueRoadmapBtn) {
+
+    continueRoadmapBtn.addEventListener("click", function () {
+
+        const userData =
+            localStorage.getItem("careerAIUser");
+
+        if (!userData) {
+            window.location.href = "login.html";
+            return;
+        }
+
+        const user = JSON.parse(userData);
+
+        fetch(`http://127.0.0.1:5000/api/auth/profile/${user.id}`)
+            .then(response => response.json())
+            .then(data => {
+
+                if (!data.user || !data.user.career_goal) {
+
+                    alert("Please select your career first.");
+
+                    window.location.href =
+                        "career-selection.html";
+
+                    return;
+                }
+
+                const career =
+                    data.user.career_goal;
+
+                // Java
+                if (career === "Java Full Stack Developer") {
+                    window.location.href =
+                        "java-roadmap.html";
+                }
+
+                // Python
+                else if (career === "Python Developer") {
+                    window.location.href =
+                        "python-roadmap.html";
+                }
+
+                // Data Analytics
+                else if (career === "Data Analytics") {
+                    window.location.href =
+                        "data-roadmap.html";
+                }
+
+                // AI / ML
+                else if (career === "AI / ML") {
+                    window.location.href =
+                        "ai-roadmap.html";
+                }
+
+                // Cyber Security
+                else if (career === "Cyber Security") {
+                    window.location.href =
+                        "cyber-roadmap.html";
+                }
+
+                else {
+                    alert("Roadmap not available yet.");
+                }
+
+            })
+            .catch(error => {
+
+                console.error(
+                    "Roadmap loading error:",
+                    error
+                );
+
+                alert("Cannot connect to server.");
+            });
+
+    });
+}
+</script>
+
+</html>

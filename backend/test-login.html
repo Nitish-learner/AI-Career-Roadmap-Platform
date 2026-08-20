@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CareerAI Login Test</title>
+</head>
+<body>
+
+    <h2>CareerAI Login Test</h2>
+
+    <input type="email" id="email" placeholder="Email"><br><br>
+
+    <input type="password" id="password" placeholder="Password"><br><br>
+
+    <button onclick="login()">Login</button>
+
+    <p id="result"></p>
+
+    <script>
+        async function login() {
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+
+            try {
+                const response = await fetch(
+                    "http://127.0.0.1:5000/api/auth/login",
+                    {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify({
+                            email: email,
+                            password: password
+                        })
+                    }
+                );
+
+                const data = await response.json();
+
+                document.getElementById("result").innerText =
+                    data.message;
+
+                console.log(data);
+
+            } catch (error) {
+                console.error(error);
+
+                document.getElementById("result").innerText =
+                    "Server connection failed";
+            }
+        }
+    </script>
+
+</body>
+</html>

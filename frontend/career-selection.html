@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Choose Career | CareerAI</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #eef2ff, #f8fafc);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 30px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1000px;
+            background: white;
+            padding: 40px;
+            border-radius: 24px;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .header h1 {
+            font-size: 32px;
+            color: #111827;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            color: #6b7280;
+        }
+
+        .careers {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .career-card {
+            border: 2px solid #e5e7eb;
+            border-radius: 18px;
+            padding: 25px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .career-card:hover {
+            transform: translateY(-5px);
+            border-color: #6366f1;
+            box-shadow: 0 10px 25px rgba(99, 102, 241, 0.15);
+        }
+
+        .career-card.selected {
+            border-color: #6366f1;
+            background: #eef2ff;
+        }
+
+        .icon {
+            font-size: 38px;
+            margin-bottom: 15px;
+        }
+
+        .career-card h2 {
+            color: #111827;
+            margin-bottom: 8px;
+        }
+
+        .career-card p {
+            color: #6b7280;
+            line-height: 1.5;
+        }
+
+        .continue-btn {
+            display: block;
+            width: 100%;
+            margin-top: 30px;
+            padding: 15px;
+            border: none;
+            border-radius: 12px;
+            background: #6366f1;
+            color: white;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .continue-btn:hover {
+            background: #4f46e5;
+        }
+
+        @media (max-width: 700px) {
+            .careers {
+                grid-template-columns: 1fr;
+            }
+
+            .container {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="header">
+            <h1>Choose Your Career 🚀</h1>
+            <p>Select the career path you want to build your future in.</p>
+        </div>
+
+        <div class="careers">
+
+            <div class="career-card" data-career="Java Full Stack Developer">
+                <div class="icon">☕</div>
+                <h2>Java Full Stack</h2>
+                <p>
+                    Java, Spring Boot, MySQL, HTML, CSS and JavaScript.
+                </p>
+            </div>
+
+            <div class="career-card" data-career="Python Developer">
+                <div class="icon">🐍</div>
+                <h2>Python Developer</h2>
+                <p>
+                    Python, APIs, Django, Flask and backend development.
+                </p>
+            </div>
+
+            <div class="career-card" data-career="Data Analytics">
+                <div class="icon">📊</div>
+                <h2>Data Analytics</h2>
+                <p>
+                    Excel, SQL, Power BI, Python and data visualization.
+                </p>
+            </div>
+
+            <div class="career-card" data-career="AI / ML">
+                <div class="icon">🤖</div>
+                <h2>AI / ML</h2>
+                <p>
+                    Python, Machine Learning, Deep Learning and AI.
+                </p>
+            </div>
+
+            <div class="career-card" data-career="Cyber Security">
+                <div class="icon">🛡️</div>
+                <h2>Cyber Security</h2>
+                <p>
+                    Networking, security fundamentals and ethical security.
+                </p>
+            </div>
+
+        </div>
+
+        <button class="continue-btn" id="continueBtn">
+            Continue →
+        </button>
+
+    </div>
+
+
+    <script>
+
+        let selectedCareer = "";
+
+        const cards = document.querySelectorAll(".career-card");
+
+        cards.forEach(card => {
+
+            card.addEventListener("click", function () {
+
+                cards.forEach(c => {
+                    c.classList.remove("selected");
+                });
+
+                this.classList.add("selected");
+
+                selectedCareer = this.dataset.career;
+
+            });
+
+        });
+
+
+        document.getElementById("continueBtn")
+            .addEventListener("click", async function () {
+
+                if (!selectedCareer) {
+
+                    alert("Please select a career first.");
+
+                    return;
+                }
+
+                const userData =
+                    localStorage.getItem("careerAIUser");
+
+                if (!userData) {
+
+                    alert("Please login first.");
+
+                    window.location.href = "login.html";
+
+                    return;
+                }
+
+                const user =
+                    JSON.parse(userData);
+
+                try {
+
+                    const response = await fetch(
+                        "http://127.0.0.1:5000/api/profile/career",
+                        {
+                            method: "POST",
+
+                            headers: {
+                                "Content-Type": "application/json"
+                            },
+
+                            body: JSON.stringify({
+                                userId: user.id,
+                                careerGoal: selectedCareer
+                            })
+                        }
+                    );
+
+                    const data =
+                        await response.json();
+
+                    if (!response.ok) {
+
+                        alert(
+                            data.message ||
+                            "Failed to save career"
+                        );
+
+                        return;
+                    }
+
+                    alert(
+                        "Career selected successfully! 🎉"
+                    );
+
+                    window.location.href =
+                        "dashboard.html";
+
+                } catch (error) {
+
+                    console.error(error);
+
+                    alert(
+                        "Cannot connect to server."
+                    );
+                }
+
+            });
+
+    </script>
+
+</body>
+
+</html>
