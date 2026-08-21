@@ -15,14 +15,11 @@
 
 </head>
 
-
 <body>
 
-
-    <!-- Sidebar -->
+    <!-- ================= SIDEBAR ================= -->
 
     <aside class="sidebar">
-
 
         <div class="logo">
 
@@ -92,33 +89,31 @@
 
         </div>
 
-
     </aside>
 
 
-
-    <!-- Main -->
+    <!-- ================= MAIN ================= -->
 
     <main class="main-content">
 
 
-        <!-- Top -->
+        <!-- ================= HEADER ================= -->
 
         <div class="lesson-header">
 
-
             <div>
 
-                <span class="breadcrumb"
+                <span
+                    class="breadcrumb"
                     id="breadcrumb">
 
-                    Java Full Stack /
-                    Core Java
+                    CareerAI / Learning
 
                 </span>
 
 
-                <span class="lesson-label"
+                <span
+                    class="lesson-label"
                     id="lessonType">
 
                     LESSON
@@ -127,22 +122,18 @@
 
 
                 <h1 id="lessonTitle">
-
-                    Inheritance
-
+                    Loading Lesson...
                 </h1>
 
 
                 <p id="lessonDescription">
-
-                    Understand how inheritance allows
-                    one class to acquire the properties
-                    and behaviour of another class.
-
+                    Loading lesson description...
                 </p>
 
             </div>
 
+
+            <!-- PROGRESS -->
 
             <div class="lesson-progress">
 
@@ -164,384 +155,179 @@
 
             </div>
 
-
         </div>
 
 
-
-        <!-- Lesson Content -->
+        <!-- ================= LESSON CONTAINER ================= -->
 
         <section class="lesson-container">
 
 
-            <!-- Main Article -->
+            <!-- ================= MAIN ARTICLE ================= -->
 
             <article class="lesson-content">
 
+    <!-- Explanation -->
 
-                <div class="content-section">
-
-                    <h2>
-                        What is Inheritance?
-                    </h2>
-
-
-                    <p>
-
-                        Inheritance is one of the
-                        important concepts of
-                        Object-Oriented Programming.
-
-                        It allows a new class to
-                        reuse properties and
-                        methods of an existing class.
-
-                    </p>
-
-
-                    <div class="info-box">
-
-                        <strong>
-                            Simple Definition
-                        </strong>
-
-                        <p>
-
-                            Inheritance means creating
-                            a new class from an existing
-                            class.
-
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-
-                <div class="content-section">
-
-                    <h2>
-                        Why do we use Inheritance?
-                    </h2>
-
-
-                    <ul>
-
-                        <li>
-                            Code reusability
-                        </li>
-
-                        <li>
-                            Reduces duplicate code
-                        </li>
-
-                        <li>
-                            Supports method overriding
-                        </li>
-
-                        <li>
-                            Makes applications easier
-                            to maintain
-                        </li>
-
-                    </ul>
-
-                </div>
-
-
-
-                <div class="content-section">
-
-                    <h2>
-                        Java Example
-                    </h2>
-
-
-                    <p>
-
-                        In Java, the
-                        <strong>extends</strong>
-                        keyword is used to create
-                        inheritance.
-
-                    </p>
-
-
-                    <div class="code-box">
-
-
-                        <div class="code-header">
-
-                            <span>
-                                Java
-                            </span>
-
-                            <button
-                                onclick="copyCode()">
-
-                                Copy
-
-                            </button>
-
-                        </div>
-
-
-<pre id="codeExample"><code>class Animal {
-
-    void eat() {
-        System.out.println("Animal is eating");
-    }
-}
-
-
-class Dog extends Animal {
-
-    void bark() {
-        System.out.println("Dog is barking");
-    }
-}
-
-
-public class Main {
-
-    public static void main(String[] args) {
-
-        Dog dog = new Dog();
-
-        dog.eat();
-        dog.bark();
-    }
-}</code></pre>
-
-
-                    </div>
-
-                </div>
-
-                <div class="content-section">
+    <div class="content-section" id="explanation-section">
 
     <h2>
-        Quiz
+        Explanation
     </h2>
 
-    <p id="question"></p>
-
-    <div id="options" class="quiz-options"></div>
-
-    <p id="quizResult"></p>
+    <p id="explanation"></p>
 
 </div>
 
 
+    <!-- Topics -->
 
-                <div class="content-section">
+    <div class="content-section" id="topics-section">
 
-                    <h2>
-                        How it works
-                    </h2>
+    <h2>
+        Topics Covered
+    </h2>
 
+    <ul id="topics">
+    </ul>
 
-                    <div class="step-list">
+</div>
 
 
-                        <div class="step">
+    <!-- Example -->
 
-                            <span>
-                                01
-                            </span>
+    <div class="content-section" id="example-section">
 
-                            <p>
-                                Animal is the parent class.
-                            </p>
+    <h2>
+        Example
+    </h2>
 
-                        </div>
+        <div class="code-box">
 
+            <div class="code-header">
 
-                        <div class="step">
+                <span id="exampleLanguage">
+                    Code
+                </span>
 
-                            <span>
-                                02
-                            </span>
+                <button onclick="copyCode()">
+                    Copy
+                </button>
 
-                            <p>
-                                Dog extends Animal.
-                            </p>
+            </div>
 
-                        </div>
+            <pre id="codeExample"><code></code></pre>
 
+        </div>
 
-                        <div class="step">
+    </div>
 
-                            <span>
-                                03
-                            </span>
 
-                            <p>
-                                Dog can use the
-                                eat() method.
-                            </p>
+    <!-- Quiz -->
 
-                        </div>
+    <div class="content-section" id="quiz-section">
 
+    <h2>
+        Quick Check
+    </h2>
 
-                        <div class="step">
+        <p id="question"></p>
 
-                            <span>
-                                04
-                            </span>
+        <div id="options" class="quiz-options"></div>
 
-                            <p>
-                                Dog can also have
-                                its own methods.
-                            </p>
+        <p id="quizResult"
+           class="quiz-result">
+        </p>
 
-                        </div>
+    </div>
 
 
-                    </div>
+    <!-- Complete -->
 
-                </div>
+    <div class="complete-box">
 
+        <div>
 
-                    <div class="quiz-options">
+            <strong>
+                Finished this lesson?
+            </strong>
 
+            <p>
+                Mark the lesson as completed
+                to continue your roadmap.
+            </p>
 
-                        <button
-                            onclick="checkAnswer(this, false)">
+        </div>
 
-                            implements
+        <button id="completeLesson">
+            Mark as Complete →
+        </button>
 
-                        </button>
+    </div>
 
 
-                        <button
-                            onclick="checkAnswer(this, true)">
+    <!-- Navigation -->
 
-                            extends
+    <div class="lesson-navigation">
 
-                        </button>
+        <button id="previousLesson">
+            ← Previous Lesson
+        </button>
 
+        <button id="nextLesson">
+            Next Lesson →
+        </button>
 
-                        <button
-                            onclick="checkAnswer(this, false)">
+    </div>
 
-                            inherits
 
-                        </button>
+    <!-- Practice -->
 
-
-                        <button
-                            onclick="checkAnswer(this, false)">
-
-                            superClass
-
-                        </button>
-
-
-                    </div>
-
-
-                    <div id="quizResult"
-                        class="quiz-result">
-
-                    </div>
-
-                </div>
-
-
-
-                <!-- Complete -->
-
-                <div class="complete-box">
-
-
-                    <div>
-
-                        <strong>
-                            Finished this lesson?
-                        </strong>
-
-                        <p>
-                            Mark the lesson as completed
-                            to continue your roadmap.
-                        </p>
-
-                    </div>
-
-
-                    <button
-                        id="completeLesson">
-
-                        Mark as Complete →
-
-                    </button>
-
-
-                </div>
-
-                <!-- Lesson Navigation -->
-
-<div class="lesson-navigation">
-
-    <button id="previousLesson">
-        ← Previous Lesson
-    </button>
-
-    <button type="button" id="nextLesson"
-    onclick="window.location.href='lesson.html?domain=java&lesson=collections'">
-    Next Lesson →
-</button>
-    
     <div class="practice-button-box">
-    <button id="practiceLesson">
-        📝 Practice This Lesson →
-    </button>
-</div>
 
-</div>
+        <button id="practiceLesson">
+            📝 Practice This Lesson →
+        </button>
 
+    </div>
 
-
-            </article>
+</article>
 
 
-
-            <!-- Right Sidebar -->
+            <!-- ================= RIGHT SIDEBAR ================= -->
 
             <aside class="lesson-sidebar">
 
 
+                <!-- LESSON CONTENT -->
+
                 <div class="side-card">
 
                     <h3>
-                        In this lesson
+                        In This Lesson
                     </h3>
 
 
-                    <a href="#what">
-                        What is Inheritance?
-                    </a>
+                    <a href="#explanation-section">
+    📖 Explanation
+</a>
 
-                    <a href="#why">
-                        Why use Inheritance?
-                    </a>
+<a href="#topics-section">
+    🎯 What You Will Learn
+</a>
 
-                    <a href="#example">
-                        Java Example
-                    </a>
+<a href="#example-section">
+    💻 Example
+</a>
 
-                    <a href="#working">
-                        How it works
-                    </a>
-
-                    <a href="#quiz">
-                        Quick Check
-                    </a>
+<a href="#quiz-section">
+    🧠 Quick Check
+</a>
 
                 </div>
 
 
+                <!-- PROGRESS -->
 
                 <div class="side-card">
 
@@ -555,6 +341,7 @@ public class Main {
                         <strong>
                             0%
                         </strong>
+
 
                         <div class="progress">
 
@@ -577,15 +364,18 @@ public class Main {
 
             </aside>
 
-
         </section>
-
 
     </main>
 
 
-<script src="js/lesson-Data.js"></script>
-<script src="js/lesson.js"></script>
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script src="js/lesson-Data.js"></script>
+
+    <script src="js/lesson.js"></script>
+
+
 </body>
 
 </html>

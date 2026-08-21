@@ -925,7 +925,59 @@ button.addEventListener(
                 "getId()"
             ],
 
-            answer: "getElementById()"
+                        answer: "getElementById()"
+        },
+
+
+        "git": {
+
+            title: "Git & GitHub Fundamentals",
+            type: "Lesson",
+
+            description:
+                "Learn how Git and GitHub are used to manage code and collaborate on software projects.",
+
+            topics: [
+                "What is Git",
+                "GitHub",
+                "Repository",
+                "git init",
+                "git add",
+                "git commit",
+                "git push"
+            ],
+
+            explanation: `
+Git is a version control system used to track changes in source code.
+
+GitHub is a platform where developers can store and manage
+their Git repositories online.
+
+Git helps developers maintain different versions of their projects
+and collaborate with other developers.
+            `,
+
+            exampleLanguage: "Git",
+
+            code: `git init
+
+git add .
+
+git commit -m "Initial commit"
+
+git push origin main`,
+
+            question:
+                "Which command is used to save changes in a Git repository?",
+
+            options: [
+                "git save",
+                "git commit",
+                "git upload",
+                "git store"
+            ],
+
+            answer: "git commit"
         }
 
     },
@@ -1132,142 +1184,194 @@ ORDER BY total_students DESC;`,
 
     aiml: {
 
-        "python": {
+    "python": {
 
-            title: "Python for AI",
-            type: "Lesson",
+        title: "Python for AI",
+        type: "Lesson",
 
-            description:
-                "Learn Python fundamentals required for artificial intelligence and machine learning.",
+        description:
+            "Learn Python fundamentals required for artificial intelligence and machine learning.",
 
-            topics: [
-                "Python Syntax",
-                "Functions",
-                "Lists",
-                "Dictionaries",
-                "Modules",
-                "OOP"
-            ],
+        topics: [
+            "Python Syntax",
+            "Functions",
+            "Lists",
+            "Dictionaries",
+            "Modules",
+            "OOP"
+        ],
 
-            explanation: `
+        explanation: `
 Python is one of the most widely used languages in artificial intelligence and machine learning.
 
 Its large ecosystem of libraries makes it suitable for data processing and model development.
-            `,
+        `,
 
-            exampleLanguage: "Python",
+        exampleLanguage: "Python",
 
-            code: `import numpy as np
+        code: `import numpy as np
 
 numbers = np.array([10, 20, 30])
 
 print(numbers.mean())`,
 
-            question:
-                "Which language is widely used for AI and Machine Learning?",
+        question:
+            "Which language is widely used for AI and Machine Learning?",
 
-            options: [
-                "Python",
-                "HTML",
-                "CSS",
-                "SQL"
-            ],
+        options: [
+            "Python",
+            "HTML",
+            "CSS",
+            "SQL"
+        ],
 
-            answer: "Python"
-        },
+        answer: "Python"
+    },
 
 
-        "statistics": {
+    "statistics": {
 
-            title: "Mathematics & Statistics",
-            type: "Lesson",
+        title: "Mathematics & Statistics",
+        type: "Lesson",
 
-            description:
-                "Understand the mathematical and statistical concepts required for machine learning.",
+        description:
+            "Understand the mathematical and statistical concepts required for machine learning.",
 
-            topics: [
-                "Mean",
-                "Probability",
-                "Variance",
-                "Matrices",
-                "Vectors",
-                "Statistics"
-            ],
+        topics: [
+            "Mean",
+            "Probability",
+            "Variance",
+            "Matrices",
+            "Vectors",
+            "Statistics"
+        ],
 
-            explanation: `
+        explanation: `
 Mathematics and statistics form an important foundation for understanding machine learning algorithms.
 
 Concepts such as probability, vectors, matrices and statistics are frequently used in machine learning.
-            `,
+        `,
 
-            exampleLanguage: "Mathematics",
+        exampleLanguage: "Mathematics",
 
-            code: `Mean =
+        code: `Mean =
 
 (10 + 20 + 30) / 3
 
 = 20`,
 
-            question:
-                "Which concept measures the average value of a dataset?",
+        question:
+            "Which concept measures the average value of a dataset?",
 
-            options: [
-                "Mean",
-                "Matrix",
-                "Vector",
-                "Gradient"
-            ],
+        options: [
+            "Mean",
+            "Matrix",
+            "Vector",
+            "Gradient"
+        ],
 
-            answer: "Mean"
-        },
+        answer: "Mean"
+    },
 
 
-        "machine-learning": {
+    "machine-learning": {
 
-            title: "Machine Learning",
-            type: "Lesson",
+        title: "Machine Learning",
+        type: "Lesson",
 
-            description:
-                "Learn the fundamentals of machine learning and how models learn patterns from data.",
+        description:
+            "Learn the fundamentals of machine learning and how models learn patterns from data.",
 
-            topics: [
-                "Supervised Learning",
-                "Unsupervised Learning",
-                "Regression",
-                "Classification",
-                "Clustering",
-                "Model Evaluation"
-            ],
+        topics: [
+            "Supervised Learning",
+            "Unsupervised Learning",
+            "Regression",
+            "Classification",
+            "Clustering",
+            "Model Evaluation"
+        ],
 
-            explanation: `
+        explanation: `
 Machine learning allows computers to learn patterns from data and make predictions or decisions.
 
 Common approaches include supervised learning and unsupervised learning.
-            `,
+        `,
 
-            exampleLanguage: "Python",
+        exampleLanguage: "Python",
 
-            code: `from sklearn.linear_model import LinearRegression
+        code: `from sklearn.linear_model import LinearRegression
 
-model =
-    LinearRegression()
+model = LinearRegression()
 
 model.fit(X_train, y_train)`,
 
-            question:
-                "Which type of learning uses labelled training data?",
+        question:
+            "Which type of learning uses labelled training data?",
 
-            options: [
-                "Supervised Learning",
-                "Unsupervised Learning",
-                "Random Learning",
-                "Manual Learning"
-            ],
+        options: [
+            "Supervised Learning",
+            "Unsupervised Learning",
+            "Random Learning",
+            "Manual Learning"
+        ],
 
-            answer: "Supervised Learning"
-        }
-
+        answer: "Supervised Learning"
     },
+
+
+    "deep-learning": {
+
+        title: "Deep Learning",
+        type: "Lesson",
+
+        description:
+            "Learn the fundamentals of deep learning and understand how neural networks learn from data.",
+
+        topics: [
+            "Neural Networks",
+            "Neurons",
+            "Input Layer",
+            "Hidden Layers",
+            "Output Layer",
+            "Deep Learning Models"
+        ],
+
+        explanation: `
+Deep Learning is a branch of Machine Learning that uses neural networks
+with multiple layers to learn complex patterns from data.
+
+Deep Learning is commonly used in image recognition,
+speech recognition and natural language processing.
+        `,
+
+        exampleLanguage: "Python",
+
+        code: `import tensorflow as tf
+
+model = tf.keras.Sequential([
+    tf.keras.layers.Dense(10, activation="relu"),
+    tf.keras.layers.Dense(1)
+])
+
+model.compile(
+    optimizer="adam",
+    loss="mse"
+)`,
+
+        question:
+            "What is the main building block of a neural network?",
+
+        options: [
+            "Neuron",
+            "Database",
+            "HTML",
+            "Compiler"
+        ],
+
+        answer: "Neuron"
+    }
+
+},
 
 
     /* ==================================================

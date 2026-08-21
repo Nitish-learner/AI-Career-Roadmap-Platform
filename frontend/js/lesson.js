@@ -58,7 +58,8 @@ const sideProgressBar =
     document.querySelector(
         ".side-progress .progress > div"
     );
-
+    const exampleLanguageElement =
+    document.getElementById("exampleLanguage");
 
 /* ================= FIND LESSON ================= */
 
@@ -201,6 +202,24 @@ function loadLesson() {
         codeElement.textContent =
             lesson.code || "";
     }
+    /* ---------- EXAMPLE LANGUAGE ---------- */
+
+if (exampleLanguageElement) {
+
+    exampleLanguageElement.textContent =
+        lesson.exampleLanguage || "Code";
+}
+
+    /* ---------- CODE LANGUAGE ---------- */
+
+const exampleLanguage =
+    document.getElementById("exampleLanguage");
+
+if (exampleLanguage) {
+
+    exampleLanguage.textContent =
+        lesson.exampleLanguage || "Code";
+}
 
 
     /* ---------- EXPLANATION ---------- */
