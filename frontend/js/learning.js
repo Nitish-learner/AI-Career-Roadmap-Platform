@@ -24,24 +24,53 @@ const pageTitle =
 const continueButton =
     document.getElementById("continueLearning");
 
+    const currentModuleNumber =
+    document.getElementById("currentModuleNumber");
+
+const currentLessonTitle =
+    document.getElementById("currentLessonTitle");
+
+const currentLessonDescription =
+    document.getElementById("currentLessonDescription");
+
+    const skillList =
+    document.getElementById("skillList");
+
+const skillProgressText =
+    document.getElementById("skillProgressText");
+
+const skillProgressBar =
+    document.querySelector(".lesson-action .progress div");
 
 /* ================= MODULE → LESSON ID ================= */
 
 const moduleLessonMap = {
 
     java: {
-        "Programming Fundamentals":
-            "programming-fundamentals",
+    "Programming Fundamentals":
+        "programming-fundamentals",
 
-        "Core Java":
-            "core-java",
+    "Core Java":
+        "core-java",
 
-        "SQL & MySQL":
-            "sql",
+    "SQL & MySQL":
+        "sql",
 
-        "HTML, CSS & JavaScript":
-            "html-css-js"
-    },
+    "HTML, CSS & JavaScript":
+        "html-css-js",
+
+    "Spring Boot":
+        "spring-boot",
+
+    "Full Stack Integration":
+        "full-stack-integration",
+
+    "Real-World Projects":
+        "real-world-projects",
+
+    "Career Preparation":
+        "career-preparation"
+},
 
     python: {
         "Programming Fundamentals":
@@ -316,6 +345,134 @@ function renderModules(
     domainKey,
     domain
 ) {
+
+    /* ================= CURRENT LESSON SKILLS ================= */
+
+function updateLessonSkills(domainKey, domain) {
+
+    if (!skillList) {
+        return;
+    }
+
+    const currentLesson =
+        getCurrentLesson(domainKey);
+
+    if (!currentLesson) {
+        skillList.innerHTML = "";
+        return;
+    }
+
+    const topics =
+        currentLesson.data.topics || [];
+
+    skillList.innerHTML = "";
+
+    let completedCount = 0;
+
+    topics.forEach((topic, index) => {
+
+        const completed =
+            isLessonCompleted(
+                domainKey,
+                currentLesson.id
+            );
+
+        if (completed) {
+            completedCount++;
+        }
+
+        const skill =
+            document.createElement("div");
+
+        let statusClass = "locked";
+        let number = String(index + 1).padStart(2, "0");
+
+        if (completed) {
+
+            statusClass = "completed";
+            number = "✓";
+
+        } else if (index === 0) {
+
+            statusClass = "current";
+
+        }
+
+        skill.classList.add(
+            "skill",
+            statusClass
+        );
+
+        skill.innerHTML = `
+
+            <span>
+                ${number}
+            </span>
+
+            <div>
+
+                <strong>
+                    ${topic}
+                </strong>
+
+                <small>
+                    ${completed
+                        ? "Completed"
+                        : index === 0
+                            ? "Current skill"
+                            : "Upcoming skill"
+                    }
+                </small>
+
+            </div>
+
+        `;
+
+        skillList.appendChild(skill);
+
+    });
+
+
+    /* ================= PROGRESS ================= */
+
+    const total =
+        topics.length;
+
+    const percentage =
+        total === 0
+            ? 0
+            : Math.round(
+                (completedCount / total) * 100
+            );
+
+
+    if (skillProgressText) {
+
+        skillProgressText.textContent =
+            completedCount +
+            " of " +
+            total +
+            " skills completed";
+    }
+
+
+    if (skillProgressBar) {
+
+        skillProgressBar.style.width =
+            percentage + "%";
+    }
+
+}
+
+updateLessonSkills(
+    domainKey,
+    domain
+);
+
+    updateCurrentLesson(
+    domainKey,
+    domain
+);
 
     if (!modulesContainer) {
         return;
@@ -613,4 +770,60 @@ function setupContinueButton() {
         }
     );
 }
+
+/* ================= CURRENT LESSON ================= */
+
+function updateCurrentLesson(domainKey, domain) {
+
+    const currentLesson =
+        getCurrentLesson(domainKey);
+
+    if (!currentLesson) {
+        return;
+    }
+
+    const currentModuleIndex =
+        domain.modules.findIndex(module => {
+
+            const lessonId =
+                moduleLessonMap[domainKey]?.[
+                    module.title
+                ];
+
+            return lessonId === currentLesson.id;
+        });
+
+
+    /* Module Number */
+
+    if (currentModuleNumber) {
+
+        currentModuleNumber.textContent =
+            "MODULE " +
+            String(
+                currentModuleIndex + 1
+            ).padStart(2, "0");
+    }
+
+
+    /* Lesson Title */
+
+    if (currentLessonTitle) {
+
+        currentLessonTitle.textContent =
+            currentLesson.data.title;
+    }
+
+
+    /* Description */
+
+    if (currentLessonDescription) {
+
+        currentLessonDescription.textContent =
+            currentLesson.data.description;
+    }
+
+}
+
+
 setupContinueButton();

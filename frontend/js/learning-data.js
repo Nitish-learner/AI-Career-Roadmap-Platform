@@ -1,52 +1,51 @@
 const learningData = {
 
     java: {
-        name: "Java Full Stack",
-        progress: 12,
+    name: "Java Full Stack",
 
-        modules: [
-            {
-    title: "Programming Fundamentals",
-    subtitle: "Logic • Basics • Problem Solving",
-    status: "completed"
+    modules: [
+        {
+            title: "Programming Fundamentals",
+            subtitle: "Logic • Basics • Problem Solving",
+            status: "current"
+        },
+        {
+            title: "Core Java",
+            subtitle: "OOP • Collections • Exceptions",
+            status: "locked"
+        },
+        {
+            title: "SQL & MySQL",
+            subtitle: "Database • Queries • Joins",
+            status: "locked"
+        },
+        {
+            title: "HTML, CSS & JavaScript",
+            subtitle: "Frontend Development",
+            status: "locked"
+        },
+        {
+            title: "Spring Boot",
+            subtitle: "Backend • REST API",
+            status: "locked"
+        },
+        {
+            title: "Full Stack Integration",
+            subtitle: "Frontend • Backend • Database",
+            status: "locked"
+        },
+        {
+            title: "Real-World Projects",
+            subtitle: "Build • Test • Evaluate",
+            status: "locked"
+        },
+        {
+            title: "Career Preparation",
+            subtitle: "Resume • Interview • Assessment",
+            status: "locked"
+        }
+    ]
 },
-{
-    title: "Core Java",
-    subtitle: "OOP • Collections • Exceptions",
-    status: "current"
-},
-{
-    title: "SQL & MySQL",
-    subtitle: "Database • Queries • Joins",
-    status: "locked"
-},
-            {
-                title: "HTML, CSS & JavaScript",
-                subtitle: "Frontend Development",
-                status: "locked"
-            },
-            {
-                title: "Spring Boot",
-                subtitle: "Backend • REST API",
-                status: "locked"
-            },
-            {
-                title: "Full Stack Integration",
-                subtitle: "Frontend • Backend • Database",
-                status: "locked"
-            },
-            {
-                title: "Real-World Projects",
-                subtitle: "Build • Test • Evaluate",
-                status: "locked"
-            },
-            {
-                title: "Career Preparation",
-                subtitle: "Resume • Interview • Assessment",
-                status: "locked"
-            }
-        ]
-    },
 
 
     python: {

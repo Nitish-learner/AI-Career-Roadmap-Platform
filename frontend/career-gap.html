@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Career Gap Analysis | CareerAI</title>
+
+    <link rel="stylesheet" href="css/career-gap.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <header>
+            <h1>🎯 Career Gap Analysis</h1>
+            <p>Analyze your current skills and discover what you need to become job-ready.</p>
+        </header>
+
+        <main>
+
+            <!-- Career Information -->
+            <section class="career-info">
+                <h2>Your Target Career</h2>
+
+                <div class="career-card">
+                    <h3 id="careerName">Java Full Stack Developer</h3>
+                    <p>
+                        Compare your current skills with the skills required
+                        for your target career.
+                    </p>
+                </div>
+            </section>
+
+
+            <!-- Skills Form -->
+            <section class="skills-section">
+
+                <h2>Tell Us Your Current Skill Level</h2>
+
+                <p class="instruction">
+                    Select your level for each skill.
+                </p>
+
+                <div id="skillsContainer">
+                    <!-- Skills JavaScript se automatically aayengi -->
+                </div>
+
+                <button id="analyzeBtn">
+                    Analyze My Career Gap 🚀
+                </button>
+
+                <div id="resultSection" class="result-section" style="display: none;">
+
+    <h2>🎯 Career Readiness Result</h2>
+
+    <div class="score-card">
+        <h3>Your Career Readiness Score</h3>
+
+        <div class="score" id="readinessScore">
+            0%
+        </div>
+
+        <p id="scoreMessage">
+            Keep improving your skills!
+        </p>
+    </div>
+
+    <div class="skill-report">
+
+    <h2>📊 Skill Gap Report</h2>
+
+    <div id="skillResults"></div>
+
+</div>
+
+<button id="startLearningBtn" class="learning-btn">
+    🚀 Start Learning
+</button>
+
+</div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <script src="js/career-data.js"></script>
+    <script src="js/career-gap.js"></script>
+
+</body>
+</html>

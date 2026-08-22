@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+< lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="css/learning-page.css">
 </head>
 
-<body>
+<>
 
     <!-- Sidebar -->
 
@@ -402,98 +402,29 @@
                 <div class="lesson-top">
 
                     <span class="lesson-label">
-                        CURRENT MODULE
-                    </span>
+    CURRENT MODULE
+</span>
 
-                    <span class="lesson-number">
-                        MODULE 03
-                    </span>
+<span class="lesson-number" id="currentModuleNumber">
+    MODULE 01
+</span>
 
                 </div>
 
 
-                <h2>
-                    SQL & MySQL
-                </h2>
+                <h2 id="currentLessonTitle">
+    Programming Fundamentals
+</h2>
 
-                <p class="lesson-description">
-                    Learn how databases work and develop the ability
-                    to create, read, update and manage application data.
-                </p>
+                <p class="lesson-description" id="currentLessonDescription">
+    Continue your current lesson and build the skills required for your career goal.
+</p>
 
 
                 <!-- Skills -->
 
-                <div class="skill-list">
-
-                    <div class="skill completed">
-
-                        <span>✓</span>
-
-                        <div>
-                            <strong>
-                                SQL Basics
-                            </strong>
-
-                            <small>
-                                SELECT, INSERT, UPDATE, DELETE
-                            </small>
-                        </div>
-
-                    </div>
-
-
-                    <div class="skill completed">
-
-                        <span>✓</span>
-
-                        <div>
-                            <strong>
-                                Database Design
-                            </strong>
-
-                            <small>
-                                Tables, Keys & Relationships
-                            </small>
-                        </div>
-
-                    </div>
-
-
-                    <div class="skill current">
-
-                        <span>03</span>
-
-                        <div>
-                            <strong>
-                                SQL Joins
-                            </strong>
-
-                            <small>
-                                INNER, LEFT, RIGHT & SELF JOIN
-                            </small>
-                        </div>
-
-                    </div>
-
-
-                    <div class="skill locked">
-
-                        <span>04</span>
-
-                        <div>
-                            <strong>
-                                Subqueries
-                            </strong>
-
-                            <small>
-                                Nested SQL Queries
-                            </small>
-                        </div>
-
-                    </div>
-
-                </div>
+                <div class="skill-list" id="skillList">
+</div>
 
 
                 <!-- Action -->
@@ -502,13 +433,13 @@
 
                     <div>
 
-                        <span>
-                            2 of 4 skills completed
-                        </span>
+                        <span id="skillProgressText">
+    0 of 0 skills completed
+</span>
 
                         <div class="progress">
-                            <div style="width:50%;"></div>
-                        </div>
+    <div style="width:0%;"></div>
+</div>
 
                     </div>
 
@@ -620,9 +551,6 @@
     <script src="js/learning-data.js"></script>
     <script src="js/lesson-Data.js"></script>
     <script src="js/learning.js"></script>
-
-</body>
-</html>
 
 </body>
 

@@ -612,9 +612,210 @@ document
             ],
 
             answer: "JavaScript"
-        }
+
 
     },
+
+
+    "spring-boot": {
+
+        title: "Spring Boot",
+        type: "Lesson",
+
+        description:
+            "Learn how Spring Boot is used to build Java backend applications and REST APIs.",
+
+        topics: [
+            "Spring Boot Basics",
+            "Project Structure",
+            "Controllers",
+            "REST APIs",
+            "Services",
+            "Spring Boot Application"
+        ],
+
+        explanation: `
+Spring Boot is a Java framework used to build backend applications quickly.
+
+It simplifies Spring application development and provides tools for creating
+REST APIs and production-ready backend applications.
+        `,
+
+        exampleLanguage: "Java",
+
+        code: `@RestController
+public class HelloController {
+
+    @GetMapping("/hello")
+    public String hello() {
+        return "Hello CareerAI!";
+    }
+}`,
+
+        question:
+            "Which annotation is commonly used to create a REST controller in Spring Boot?",
+
+        options: [
+            "@RestController",
+            "@ControllerClass",
+            "@SpringAPI",
+            "@RestAPI"
+        ],
+
+        answer: "@RestController"
+    },
+
+
+    "full-stack-integration": {
+
+        title: "Full Stack Integration",
+        type: "Lesson",
+
+        description:
+            "Learn how frontend, backend and database work together in a full stack application.",
+
+        topics: [
+            "Frontend",
+            "Backend",
+            "REST API",
+            "Database",
+            "API Requests",
+            "Data Flow"
+        ],
+
+        explanation: `
+A full stack application connects the frontend, backend and database.
+
+The frontend sends requests to the backend using APIs.
+The backend processes the request and communicates with the database.
+        `,
+
+        exampleLanguage: "Java",
+
+        code: `Frontend
+    ↓
+REST API
+    ↓
+Spring Boot Backend
+    ↓
+MySQL Database
+    ↓
+Response
+    ↓
+Frontend`,
+
+        question:
+            "Which component usually connects the frontend with the database?",
+
+        options: [
+            "Backend",
+            "HTML",
+            "CSS",
+            "Browser"
+        ],
+
+        answer: "Backend"
+    },
+
+
+    "real-world-projects": {
+
+        title: "Real-World Projects",
+        type: "PROJECT",
+
+        description:
+            "Apply your Java Full Stack skills by building practical software projects.",
+
+        topics: [
+            "Project Planning",
+            "Database Design",
+            "Backend Development",
+            "Frontend Development",
+            "REST API",
+            "Testing"
+        ],
+
+        explanation: `
+Real-world projects help you combine the skills learned throughout the roadmap.
+
+A Java Full Stack project can include a frontend, Spring Boot backend,
+REST APIs and a MySQL database.
+        `,
+
+        exampleLanguage: "Java",
+
+        code: `Frontend
+    ↓
+Spring Boot REST API
+    ↓
+MySQL Database`,
+
+        question:
+            "What is the main purpose of a real-world project?",
+
+        options: [
+            "Only learning theory",
+            "Applying skills to solve a practical problem",
+            "Only writing HTML",
+            "Only creating a database"
+        ],
+
+        answer: "Applying skills to solve a practical problem"
+    },
+
+
+    "career-preparation": {
+
+        title: "Career Preparation",
+        type: "Lesson",
+
+        description:
+            "Prepare for Java Full Stack job opportunities through resume building, interviews and assessments.",
+
+        topics: [
+            "Resume",
+            "GitHub Portfolio",
+            "Technical Interview",
+            "Coding Practice",
+            "HR Interview",
+            "Career Readiness"
+        ],
+
+        explanation: `
+Career preparation helps you become ready for software development opportunities.
+
+You should maintain a strong resume, GitHub portfolio and project experience.
+
+Technical interview preparation should include Java, SQL, Spring Boot,
+problem solving and basic coding questions.
+        `,
+
+        exampleLanguage: "Java",
+
+        code: `Java
+SQL
+Spring Boot
+Git & GitHub
+Projects
+DSA
+Interview Preparation`,
+
+        question:
+            "Which of these is important when preparing for a software developer job?",
+
+        options: [
+            "Projects and technical skills",
+            "Only watching videos",
+            "Only creating a resume",
+            "Only learning theory"
+        ],
+
+        answer: "Projects and technical skills"
+    }
+
+},
+
+
 
 
     /* ==================================================
