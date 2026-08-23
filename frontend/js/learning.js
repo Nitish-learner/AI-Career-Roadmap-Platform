@@ -42,34 +42,57 @@ const skillProgressText =
 const skillProgressBar =
     document.querySelector(".lesson-action .progress div");
 
+const missingSkillsContainer =
+    document.getElementById("missingSkillsContainer");
+
+const gapScore =
+    document.getElementById("gapScore");
+
+const gapMessage =
+    document.getElementById("gapMessage");
+
 /* ================= MODULE → LESSON ID ================= */
 
 const moduleLessonMap = {
 
     java: {
-    "Programming Fundamentals":
-        "programming-fundamentals",
+    "Programming Fundamentals": [
+        "programming-fundamentals"
+    ],
 
-    "Core Java":
+    "Core Java": [
         "core-java",
+        "classes-objects",
+        "constructors",
+        "inheritance",
+        "polymorphism",
+        "encapsulation",
+        "abstraction"
+    ],
 
-    "SQL & MySQL":
-        "sql",
+    "SQL & MySQL": [
+        "sql"
+    ],
 
-    "HTML, CSS & JavaScript":
-        "html-css-js",
+    "HTML, CSS & JavaScript": [
+        "html-css-js"
+    ],
 
-    "Spring Boot":
-        "spring-boot",
+    "Spring Boot": [
+        "spring-boot"
+    ],
 
-    "Full Stack Integration":
-        "full-stack-integration",
+    "Full Stack Integration": [
+        "full-stack-integration"
+    ],
 
-    "Real-World Projects":
-        "real-world-projects",
+    "Real-World Projects": [
+        "real-world-projects"
+    ],
 
-    "Career Preparation":
+    "Career Preparation": [
         "career-preparation"
+    ]
 },
 
     python: {
@@ -212,6 +235,146 @@ function getDomainProgress(domainKey) {
     );
 }
 
+function loadSkillGaps() {
+
+    if (!missingSkillsContainer) {
+        return;
+    }
+
+    const missingSkills =
+        JSON.parse(
+            localStorage.getItem("missingSkills") || "[]"
+        );
+
+    const readinessScore =
+        Number(
+            localStorage.getItem(
+                "careerReadinessScore"
+            ) || 0
+        );
+
+    if (gapScore) {
+        gapScore.textContent =
+            readinessScore + "%";
+    }
+
+    missingSkillsContainer.innerHTML = "";
+
+    if (missingSkills.length === 0) {
+
+        gapMessage.textContent =
+            "🎉 Great! You don't have any major skill gaps.";
+
+        return;
+    }
+
+    gapMessage.textContent =
+        "Focus on these skills to improve your career readiness:";
+
+
+    /* ================= SKILL → LESSON MAP ================= */
+
+    const skillLessonMap = {
+
+        "Java": "core-java",
+
+        "Core Java": "core-java",
+
+        "OOP": "classes-objects",
+
+        "SQL": "sql",
+
+        "SQL & MySQL": "sql",
+
+        "MySQL": "sql",
+
+        "HTML": "html-css-js",
+
+        "CSS": "html-css-js",
+
+        "JavaScript": "html-css-js",
+
+        "HTML, CSS & JavaScript":
+            "html-css-js",
+
+        "Spring Boot": "spring-boot",
+
+        "Full Stack Integration":
+            "full-stack-integration",
+
+        "Real-World Projects":
+            "real-world-projects",
+
+        "Career Preparation":
+            "career-preparation"
+
+    };
+
+
+    missingSkills.forEach(skill => {
+
+        const skillElement =
+            document.createElement("div");
+
+        skillElement.className =
+            "missing-skill";
+
+        skillElement.innerHTML = `
+            <span>🔴</span>
+
+            <strong>${skill}</strong>
+
+            <button class="gapLearnButton">
+                Learn →
+            </button>
+        `;
+
+
+        const learnButton =
+            skillElement.querySelector(
+                ".gapLearnButton"
+            );
+
+
+        learnButton.addEventListener(
+            "click",
+            function () {
+
+                const lessonId =
+                    skillLessonMap[skill];
+
+
+                if (!lessonId) {
+
+                    alert(
+                        "Learning content for this skill is coming soon."
+                    );
+
+                    return;
+                }
+
+
+                const selectedDomain =
+                    localStorage.getItem(
+                        "selectedDomain"
+                    ) || "java";
+
+
+                openLesson(
+                    selectedDomain,
+                    lessonId
+                );
+
+            }
+        );
+
+
+        missingSkillsContainer.appendChild(
+            skillElement
+        );
+
+    });
+}
 
 /* ================= GET CURRENT LESSON ================= */
 
@@ -325,9 +488,11 @@ function loadDomain(domainKey) {
     /* ================= MODULES ================= */
 
     renderModules(
-        domainKey,
-        domain
-    );
+    domainKey,
+    domain
+);
+
+loadSkillGaps();
 
 
     /* ================= SAVE DOMAIN ================= */
@@ -348,131 +513,133 @@ function renderModules(
 
     /* ================= CURRENT LESSON SKILLS ================= */
 
-function updateLessonSkills(domainKey, domain) {
+    function updateLessonSkills(domainKey, domain) {
 
-    if (!skillList) {
-        return;
-    }
+        if (!skillList) {
+            return;
+        }
 
-    const currentLesson =
-        getCurrentLesson(domainKey);
+        const currentLesson =
+            getCurrentLesson(domainKey);
 
-    if (!currentLesson) {
+        if (!currentLesson) {
+            skillList.innerHTML = "";
+            return;
+        }
+
+        const topics =
+            currentLesson.data.topics || [];
+
         skillList.innerHTML = "";
-        return;
-    }
 
-    const topics =
-        currentLesson.data.topics || [];
+        let completedCount = 0;
 
-    skillList.innerHTML = "";
+        topics.forEach((topic, index) => {
 
-    let completedCount = 0;
+            const completed =
+                isLessonCompleted(
+                    domainKey,
+                    currentLesson.id
+                );
 
-    topics.forEach((topic, index) => {
+            if (completed) {
+                completedCount++;
+            }
 
-        const completed =
-            isLessonCompleted(
-                domainKey,
-                currentLesson.id
+            const skill =
+                document.createElement("div");
+
+            let statusClass = "locked";
+            let number =
+                String(index + 1).padStart(2, "0");
+
+            if (completed) {
+
+                statusClass = "completed";
+                number = "✓";
+
+            } else if (index === 0) {
+
+                statusClass = "current";
+
+            }
+
+            skill.classList.add(
+                "skill",
+                statusClass
             );
 
-        if (completed) {
-            completedCount++;
+            skill.innerHTML = `
+
+                <span>
+                    ${number}
+                </span>
+
+                <div>
+
+                    <strong>
+                        ${topic}
+                    </strong>
+
+                    <small>
+                        ${
+                            completed
+                                ? "Completed"
+                                : index === 0
+                                    ? "Current skill"
+                                    : "Upcoming skill"
+                        }
+                    </small>
+
+                </div>
+
+            `;
+
+            skillList.appendChild(skill);
+
+        });
+
+        const total =
+            topics.length;
+
+        const percentage =
+            total === 0
+                ? 0
+                : Math.round(
+                    (completedCount / total) * 100
+                );
+
+        if (skillProgressText) {
+
+            skillProgressText.textContent =
+                completedCount +
+                " of " +
+                total +
+                " skills completed";
         }
 
-        const skill =
-            document.createElement("div");
+        if (skillProgressBar) {
 
-        let statusClass = "locked";
-        let number = String(index + 1).padStart(2, "0");
-
-        if (completed) {
-
-            statusClass = "completed";
-            number = "✓";
-
-        } else if (index === 0) {
-
-            statusClass = "current";
-
+            skillProgressBar.style.width =
+                percentage + "%";
         }
-
-        skill.classList.add(
-            "skill",
-            statusClass
-        );
-
-        skill.innerHTML = `
-
-            <span>
-                ${number}
-            </span>
-
-            <div>
-
-                <strong>
-                    ${topic}
-                </strong>
-
-                <small>
-                    ${completed
-                        ? "Completed"
-                        : index === 0
-                            ? "Current skill"
-                            : "Upcoming skill"
-                    }
-                </small>
-
-            </div>
-
-        `;
-
-        skillList.appendChild(skill);
-
-    });
-
-
-    /* ================= PROGRESS ================= */
-
-    const total =
-        topics.length;
-
-    const percentage =
-        total === 0
-            ? 0
-            : Math.round(
-                (completedCount / total) * 100
-            );
-
-
-    if (skillProgressText) {
-
-        skillProgressText.textContent =
-            completedCount +
-            " of " +
-            total +
-            " skills completed";
     }
 
 
-    if (skillProgressBar) {
+    /* ================= UPDATE CURRENT LESSON ================= */
 
-        skillProgressBar.style.width =
-            percentage + "%";
-    }
-
-}
-
-updateLessonSkills(
-    domainKey,
-    domain
-);
+    updateLessonSkills(
+        domainKey,
+        domain
+    );
 
     updateCurrentLesson(
-    domainKey,
-    domain
-);
+        domainKey,
+        domain
+    );
+
+
+    /* ================= MODULE CONTAINER ================= */
 
     if (!modulesContainer) {
         return;
@@ -498,26 +665,30 @@ updateLessonSkills(
     let completedModules = 0;
 
 
+    /* ================= RENDER EACH MODULE ================= */
+
     domain.modules.forEach(
         (module, index) => {
 
-            const lessonId =
+            const lessonIds =
                 moduleLessonMap[
                     domainKey
                 ]?.[
                     module.title
-                ];
+                ] || [];
 
 
             /* ================= COMPLETION ================= */
 
             const completed =
-                lessonId
-                    ? isLessonCompleted(
-                        domainKey,
-                        lessonId
-                    )
-                    : false;
+                lessonIds.length > 0 &&
+                lessonIds.every(
+                    lessonId =>
+                        isLessonCompleted(
+                            domainKey,
+                            lessonId
+                        )
+                );
 
 
             if (completed) {
@@ -531,9 +702,8 @@ updateLessonSkills(
 
             let unlocked = false;
 
-            if (index === 0) {
 
-                /* First module always unlocked */
+            if (index === 0) {
 
                 unlocked = true;
 
@@ -542,21 +712,23 @@ updateLessonSkills(
                 const previousModule =
                     domain.modules[index - 1];
 
-                const previousLessonId =
+                const previousLessonIds =
                     moduleLessonMap[
                         domainKey
                     ]?.[
                         previousModule.title
-                    ];
+                    ] || [];
 
 
                 unlocked =
-                    previousLessonId
-                        ? isLessonCompleted(
-                            domainKey,
-                            previousLessonId
-                        )
-                        : false;
+                    previousLessonIds.length > 0 &&
+                    previousLessonIds.every(
+                        lessonId =>
+                            isLessonCompleted(
+                                domainKey,
+                                lessonId
+                            )
+                    );
             }
 
 
@@ -571,7 +743,7 @@ updateLessonSkills(
 
             } else if (
                 unlocked &&
-                lessonId
+                lessonIds.length > 0
             ) {
 
                 status = "current";
@@ -607,7 +779,7 @@ updateLessonSkills(
             }
 
 
-            /* ================= HTML ================= */
+            /* ================= MODULE HTML ================= */
 
             moduleElement.innerHTML = `
 
@@ -643,7 +815,7 @@ updateLessonSkills(
             /* ================= CLICK ================= */
 
             if (
-                lessonId &&
+                lessonIds.length > 0 &&
                 unlocked
             ) {
 
@@ -655,9 +827,26 @@ updateLessonSkills(
                     "click",
                     function () {
 
+                        const firstIncompleteLesson =
+                            lessonIds.find(
+                                lessonId =>
+                                    !isLessonCompleted(
+                                        domainKey,
+                                        lessonId
+                                    )
+                            );
+
+
+                        const lessonToOpen =
+                            firstIncompleteLesson ||
+                            lessonIds[
+                                lessonIds.length - 1
+                            ];
+
+
                         openLesson(
                             domainKey,
-                            lessonId
+                            lessonToOpen
                         );
 
                     }
@@ -694,8 +883,8 @@ updateLessonSkills(
             domain.modules.length +
             " completed";
     }
-}
 
+}
 /* ================= DOMAIN CHANGE ================= */
 
 if (domainSelector) {
@@ -783,15 +972,25 @@ function updateCurrentLesson(domainKey, domain) {
     }
 
     const currentModuleIndex =
-        domain.modules.findIndex(module => {
+    domain.modules.findIndex(module => {
 
-            const lessonId =
-                moduleLessonMap[domainKey]?.[
-                    module.title
-                ];
+        const lessonIds =
+            moduleLessonMap[domainKey]?.[
+                module.title
+            ];
 
-            return lessonId === currentLesson.id;
-        });
+        if (!lessonIds) {
+            return false;
+        }
+
+        const ids = Array.isArray(lessonIds)
+            ? lessonIds
+            : [lessonIds];
+
+        return ids.includes(
+            currentLesson.id
+        );
+    });
 
 
     /* Module Number */

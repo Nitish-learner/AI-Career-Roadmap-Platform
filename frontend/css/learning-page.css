@@ -603,3 +603,122 @@ body {
         width: 100%;
     }
 }
+/* ================= SKILL GAP SECTION ================= */
+
+.skill-gap-section {
+    margin: 25px 0;
+    padding: 24px;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+}
+
+.skill-gap-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 10px;
+}
+
+.skill-gap-header span {
+    display: block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #6b7280;
+    margin-bottom: 5px;
+}
+
+.skill-gap-header h2 {
+    margin: 0;
+    font-size: 22px;
+    color: #111827;
+}
+
+#gapScore {
+    min-width: 70px;
+    padding: 10px 14px;
+    text-align: center;
+    border-radius: 12px;
+    background: #eef2ff;
+    color: #4f46e5;
+    font-size: 18px;
+}
+
+#gapMessage {
+    margin: 12px 0 18px;
+    color: #6b7280;
+    font-size: 14px;
+}
+
+#missingSkillsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.missing-skill {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 11px 16px;
+    background: #fff7ed;
+    border: 1px solid #fed7aa;
+    border-radius: 10px;
+    color: #9a3412;
+    font-size: 14px;
+}
+
+.missing-skill strong {
+    font-weight: 600;
+}
+
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 768px) {
+
+    .skill-gap-section {
+        padding: 18px;
+    }
+
+    .skill-gap-header h2 {
+        font-size: 18px;
+    }
+
+    .skill-gap-header {
+        align-items: flex-start;
+    }
+
+    #missingSkillsContainer {
+        flex-direction: column;
+    }
+
+    .missing-skill {
+        width: 100%;
+        box-sizing: border-box;
+    }
+}
+
+.gapLearnButton {
+    margin-left: auto;
+    border: none;
+    padding: 7px 12px;
+    border-radius: 8px;
+    background: #4f46e5;
+    color: white;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.gapLearnButton:hover {
+    opacity: 0.85;
+}
+
+.missing-skill {
+    width: 100%;
+    box-sizing: border-box;
+}

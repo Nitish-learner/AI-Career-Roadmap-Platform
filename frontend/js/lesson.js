@@ -498,83 +498,34 @@ function setupCompleteButton() {
         lockCompleteButton();
     }
 
-    completeButton.addEventListener(
-        "click",
-        async function () {
+ completeButton.addEventListener(
+    "click",
+    function () {
 
-            if (!domain || !lessonId) {
-                return;
-            }
-
-            const userData =
-                localStorage.getItem("careerAIUser");
-
-            if (!userData) {
-                alert("Please login first.");
-                return;
-            }
-
-            const user = JSON.parse(userData);
-
-            try {
-
-                const response = await fetch(
-                    "http://127.0.0.1:5000/api/progress/complete",
-                    {
-                        method: "POST",
-
-                        headers: {
-                            "Content-Type": "application/json"
-                        },
-
-                        body: JSON.stringify({
-                            user_id: user.id,
-                            domain: domain,
-                            lesson_id: lessonId,
-                            score: 0
-                        })
-                    }
-                );
-
-                const data = await response.json();
-
-                if (!response.ok) {
-                    alert(
-                        data.message ||
-                        "Failed to save progress"
-                    );
-                    return;
-                }
-
-                localStorage.setItem(
-                    `lesson_${domain}_${lessonId}_completed`,
-                    "true"
-                );
-
-                markCompletedUI();
-
-                updateProgress();
-
-                updateCourseProgress();
-
-                alert(
-                    "Lesson completed and progress saved! 🎉"
-                );
-
-            } catch (error) {
-
-                console.error(
-                    "Progress save error:",
-                    error
-                );
-
-                alert(
-                    "Cannot connect to CareerAI server."
-                );
-            }
+        if (!domain || !lessonId) {
+            return;
         }
-    );
+
+        localStorage.setItem(
+            `lesson_${domain}_${lessonId}_completed`,
+            "true"
+        );
+
+        markCompletedUI();
+
+        updateProgress();
+
+        updateCourseProgress();
+
+        setupLessonNavigation();
+
+        alert(
+            "Lesson completed! 🎉"
+        );
+    }
+);
 }
+
 
 /* ================= COMPLETED UI ================= */
 
@@ -735,54 +686,33 @@ function updateCourseProgress() {
 
 /* ================= NAVIGATION ================= */
 
+/* ================= NAVIGATION ================= */
+
 function setupLessonNavigation() {
 
-    if (
-        !domain ||
-        !lessonId
-    ) {
+    if (!domain || !lessonId) {
         return;
     }
 
-
     const domainData =
         lessonData[domain];
-
 
     if (!domainData) {
         return;
     }
 
-
     const allLessons =
         getAllLessons(domainData);
 
-
     const currentIndex =
         allLessons.findIndex(
-            item =>
-                item.id === lessonId
+            item => item.id === lessonId
         );
 
-
-    console.log(
-        "All Lessons:",
-        allLessons.map(
-            item => item.id
-        )
-    );
-
-
-    console.log(
-        "Current Lesson:",
-        lessonId
-    );
-
-
-    console.log(
-        "Current Index:",
-        currentIndex
-    );
+    const currentCompleted =
+        localStorage.getItem(
+            `lesson_${domain}_${lessonId}_completed`
+        ) === "true";
 
 
     /* ================= PREVIOUS ================= */
@@ -791,38 +721,23 @@ function setupLessonNavigation() {
 
         if (currentIndex <= 0) {
 
-            previousLesson.disabled =
-                true;
-
-            previousLesson.style.opacity =
-                "0.5";
-
-            previousLesson.style.cursor =
-                "not-allowed";
+            previousLesson.disabled = true;
+            previousLesson.style.opacity = "0.5";
+            previousLesson.style.cursor = "not-allowed";
 
         } else {
 
-            previousLesson.disabled =
-                false;
+            previousLesson.disabled = false;
+            previousLesson.style.opacity = "1";
+            previousLesson.style.cursor = "pointer";
 
-            previousLesson.style.opacity =
-                "1";
+            previousLesson.onclick = function () {
 
-            previousLesson.style.cursor =
-                "pointer";
+                const previousId =
+                    allLessons[currentIndex - 1].id;
 
-
-            previousLesson.onclick =
-                function () {
-
-                    const previousId =
-                        allLessons[
-                            currentIndex - 1
-                        ].id;
-
-
-                    openLesson(previousId);
-                };
+                openLesson(previousId);
+            };
         }
     }
 
@@ -831,45 +746,51 @@ function setupLessonNavigation() {
 
     if (nextLesson) {
 
+        /* No next lesson */
+
         if (
             currentIndex === -1 ||
-            currentIndex >=
-            allLessons.length - 1
+            currentIndex >= allLessons.length - 1
         ) {
 
-            nextLesson.disabled =
-                true;
+            nextLesson.disabled = true;
+            nextLesson.style.opacity = "0.5";
+            nextLesson.style.cursor = "not-allowed";
 
-            nextLesson.style.opacity =
-                "0.5";
-
-            nextLesson.style.cursor =
-                "not-allowed";
-
-        } else {
-
-            nextLesson.disabled =
-                false;
-
-            nextLesson.style.opacity =
-                "1";
-
-            nextLesson.style.cursor =
-                "pointer";
-
-
-            nextLesson.onclick =
-                function () {
-
-                    const nextId =
-                        allLessons[
-                            currentIndex + 1
-                        ].id;
-
-
-                    openLesson(nextId);
-                };
+            return;
         }
+
+
+        /* Current lesson not completed */
+
+        if (!currentCompleted) {
+
+            nextLesson.disabled = true;
+            nextLesson.style.opacity = "0.5";
+            nextLesson.style.cursor = "not-allowed";
+            nextLesson.textContent =
+                "Complete Lesson First →";
+
+            return;
+        }
+
+
+        /* Current lesson completed */
+
+        nextLesson.disabled = false;
+        nextLesson.style.opacity = "1";
+        nextLesson.style.cursor = "pointer";
+        nextLesson.textContent =
+            "Next Lesson →";
+
+
+        nextLesson.onclick = function () {
+
+            const nextId =
+                allLessons[currentIndex + 1].id;
+
+            openLesson(nextId);
+        };
     }
 }
 

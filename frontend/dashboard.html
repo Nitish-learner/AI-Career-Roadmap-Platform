@@ -169,7 +169,7 @@
 
                 <div>
                     <span>Skills Completed</span>
-                    <strong>4 / 12</strong>
+                    <strong id="skillsCompleted">0 / 0</strong>
                 </div>
 
             </div>
@@ -211,7 +211,7 @@
 
                 <div>
                     <span>Overall Progress</span>
-                    <strong>32%</strong>
+                    <strong id="dashboardProgress">0%</strong>
                 </div>
 
             </div>
@@ -245,58 +245,62 @@
                 </div>
 
 
+               <div class="roadmap-item">
+
+    <div class="roadmap-number active">
+        01
+    </div>
+
+    <div class="roadmap-content">
+
+        <strong id="roadmapModule1">
+            Java Programming
+        </strong>
+
+        <span>
+            OOP • Collections • Exception Handling
+        </span>
+
+        <div class="progress">
+            <div id="roadmapProgress1" style="width: 0%"></div>
+        </div>
+
+    </div>
+
+    <span class="percentage" id="roadmapPercentage1">
+        0%
+    </span>
+
+</div>
+
+
                 <div class="roadmap-item">
 
-                    <div class="roadmap-number active">
-                        01
-                    </div>
+    <div class="roadmap-number">
+        02
+    </div>
 
-                    <div class="roadmap-content">
+    <div class="roadmap-content">
 
-                        <strong>Java Programming</strong>
+        <strong id="roadmapModule2">
+            SQL & Database
+        </strong>
 
-                        <span>
-                            OOP • Collections • Exception Handling
-                        </span>
+        <span>
+            MySQL • Queries • Database Design
+        </span>
 
-                        <div class="progress">
-                            <div style="width: 80%"></div>
-                        </div>
+        <div class="progress">
+            <div id="roadmapProgress2" style="width: 0%"></div>
+        </div>
 
-                    </div>
+    </div>
 
-                    <span class="percentage">
-                        80%
-                    </span>
+    <span class="percentage" id="roadmapPercentage2">
+        0%
+    </span>
 
-                </div>
-
-
-                <div class="roadmap-item">
-
-                    <div class="roadmap-number">
-                        02
-                    </div>
-
-                    <div class="roadmap-content">
-
-                        <strong>SQL & Database</strong>
-
-                        <span>
-                            MySQL • Queries • Database Design
-                        </span>
-
-                        <div class="progress">
-                            <div style="width: 45%"></div>
-                        </div>
-
-                    </div>
-
-                    <span class="percentage">
-                        45%
-                    </span>
-
-                </div>
+</div>
 
 
                 <div class="roadmap-item">
@@ -536,6 +540,153 @@ if (careerGoal) {
         });
     }
 
+
+// ===============================
+// CAREER READINESS SCORE
+// ===============================
+
+const readinessScore =
+    Number(
+        localStorage.getItem("careerReadinessScore") || 0
+    );
+
+const readinessCircle =
+    document.querySelector(".readiness .circle strong");
+
+if (readinessCircle) {
+
+    readinessCircle.textContent =
+        readinessScore + "%";
+}
+
+
+// Overall Progress
+
+const overallProgress =
+    document.querySelector(
+        ".stat-card:nth-child(4) strong"
+    );
+
+if (overallProgress) {
+
+    overallProgress.textContent =
+        readinessScore + "%";
+}
+
+// ===============================
+// DYNAMIC LEARNING PROGRESS
+// ===============================
+
+function getDashboardProgress() {
+
+    const selectedDomain =
+        localStorage.getItem("selectedDomain") || "java";
+
+    const domainData =
+        learningData[selectedDomain];
+
+    if (!domainData) {
+        return;
+    }
+
+    let totalLessons = 0;
+    let completedLessons = 0;
+
+    const lessonIds = [];
+
+    // Get lessons from lessonData
+    function collectLessons(data) {
+
+        if (!data || typeof data !== "object") {
+            return;
+        }
+
+        for (const key in data) {
+
+            const item = data[key];
+
+            if (!item || typeof item !== "object") {
+                continue;
+            }
+
+            if (item.title) {
+
+                totalLessons++;
+
+                lessonIds.push(key);
+
+            } else {
+
+                collectLessons(item);
+            }
+        }
+    }
+
+    collectLessons(
+        lessonData[selectedDomain]
+    );
+
+
+    // Check completed lessons
+    lessonIds.forEach(lessonId => {
+
+        const completed =
+            localStorage.getItem(
+                `lesson_${selectedDomain}_${lessonId}_completed`
+            );
+
+        if (completed === "true") {
+
+            completedLessons++;
+        }
+    });
+
+
+    // Calculate progress
+    const progress =
+        totalLessons === 0
+            ? 0
+            : Math.round(
+                (completedLessons / totalLessons) * 100
+            );
+
+
+    // Skills Completed
+    const skillsCompleted =
+        document.getElementById(
+            "skillsCompleted"
+        );
+
+    if (skillsCompleted) {
+
+        skillsCompleted.textContent =
+            completedLessons +
+            " / " +
+            totalLessons;
+    }
+
+
+    // Overall Progress
+    const dashboardProgress =
+        document.getElementById(
+            "dashboardProgress"
+        );
+
+    if (dashboardProgress) {
+
+        dashboardProgress.textContent =
+            progress + "%";
+    }
+
+
+    console.log(
+        "Dashboard Learning Progress:",
+        completedLessons +
+        "/" +
+        totalLessons,
+        progress + "%"
+    );
+}
     // ===============================
 // DYNAMIC ROADMAP
 // ===============================
@@ -621,6 +772,132 @@ if (continueRoadmapBtn) {
 
     });
 }
+
+// ===============================
+// ROADMAP MODULE PROGRESS
+// ===============================
+
+function getModuleProgress(domainKey, lessonIds) {
+
+    let completed = 0;
+
+    lessonIds.forEach(lessonId => {
+
+        const isCompleted =
+            localStorage.getItem(
+                `lesson_${domainKey}_${lessonId}_completed`
+            ) === "true";
+
+        if (isCompleted) {
+            completed++;
+        }
+    });
+
+    if (lessonIds.length === 0) {
+        return 0;
+    }
+
+    return Math.round(
+        (completed / lessonIds.length) * 100
+    );
+}
+
+
+// Java Programming
+function updateRoadmapProgress() {
+
+    const domain =
+        localStorage.getItem("selectedDomain") || "java";
+
+    if (domain !== "java") {
+        return;
+    }
+
+    const javaProgrammingLessons = [
+        "programming-fundamentals",
+        "core-java",
+        "classes-objects",
+        "constructors",
+        "inheritance",
+        "polymorphism",
+        "encapsulation",
+        "abstraction"
+    ];
+
+    const progress =
+        getModuleProgress(
+            domain,
+            javaProgrammingLessons
+        );
+
+    const progressBar =
+        document.getElementById(
+            "roadmapProgress1"
+        );
+
+    const percentage =
+        document.getElementById(
+            "roadmapPercentage1"
+        );
+
+    if (progressBar) {
+
+        progressBar.style.width =
+            progress + "%";
+    }
+
+    if (percentage) {
+
+        percentage.textContent =
+            progress + "%";
+    }
+
+    console.log(
+        "Java Programming Progress:",
+        progress + "%"
+    );
+
+// SQL & Database
+const sqlLessons = [
+    "sql"
+];
+
+const sqlProgress =
+    getModuleProgress(
+        domain,
+        sqlLessons
+    );
+
+const sqlProgressBar =
+    document.getElementById(
+        "roadmapProgress2"
+    );
+
+const sqlPercentage =
+    document.getElementById(
+        "roadmapPercentage2"
+    );
+
+if (sqlProgressBar) {
+
+    sqlProgressBar.style.width =
+        sqlProgress + "%";
+}
+
+if (sqlPercentage) {
+
+    sqlPercentage.textContent =
+        sqlProgress + "%";
+}
+
+console.log(
+    "SQL & Database Progress:",
+    sqlProgress + "%"
+);
+}
+
+updateRoadmapProgress();
+getDashboardProgress();
 </script>
 
 </html>
