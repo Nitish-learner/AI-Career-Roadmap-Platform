@@ -2,406 +2,566 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
     <title>Dashboard | CareerAI</title>
 
-    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet"
+          href="css/dashboard.css">
+
 </head>
+
 
 <body>
 
-    <!-- Sidebar -->
+
+    <!-- ===============================
+         SIDEBAR
+    ================================= -->
 
     <aside class="sidebar">
 
+
         <div class="logo">
-            <div class="logo-icon">AI</div>
+
+            <div class="logo-icon">
+                AI
+            </div>
 
             <div>
-                <h2>Career<span>AI</span></h2>
-                <small>Career Platform</small>
+
+                <h2>
+                    Career<span>AI</span>
+                </h2>
+
+                <small>
+                    Career Platform
+                </small>
+
             </div>
+
         </div>
 
 
         <nav class="sidebar-menu">
 
+
             <a href="#" class="active">
+
                 <span>⌂</span>
+
                 Dashboard
+
             </a>
 
+
             <a href="#">
+
                 <span>🧭</span>
+
                 My Roadmap
+
             </a>
 
-            <a href="#">
+
+            <a href="learning.html">
+
                 <span>📚</span>
+
                 Learning
+
             </a>
 
+
             <a href="#">
+
                 <span>📝</span>
+
                 Assessments
+
             </a>
 
+
             <a href="#">
+
                 <span>💻</span>
+
                 Projects
+
             </a>
 
+
             <a href="#">
+
                 <span>📄</span>
+
                 Resume Builder
+
             </a>
 
+
             <a href="#">
+
                 <span>🎤</span>
+
                 Interview Prep
+
             </a>
+
 
         </nav>
 
 
         <div class="sidebar-bottom">
 
+
             <a href="#">
+
                 ⚙ Settings
+
             </a>
+
 
             <a href="login.html">
+
                 ↪ Logout
+
             </a>
 
+
         </div>
+
 
     </aside>
 
 
-    <!-- Main Content -->
+
+    <!-- ===============================
+         MAIN CONTENT
+    ================================= -->
 
     <main class="main-content">
 
 
-        <!-- Topbar -->
+
+        <!-- ===============================
+             TOPBAR
+        ================================= -->
 
         <header class="topbar">
 
+
             <div>
-                <h1>Good Morning, Student 👋</h1>
+
+                <h1>
+                    Good Morning, Student 👋
+                </h1>
 
                 <p>
                     Continue your journey towards your dream career.
                 </p>
+
             </div>
 
 
+
             <div class="profile">
+
 
                 <div class="profile-avatar">
                     S
                 </div>
 
+
                 <div>
-    <strong id="profileName">Student</strong>
-    <small id="profileEmail">Career Learner</small>
-    <small id="profileEducation"></small>
-</div>
+
+                    <strong id="profileName">
+                        Student
+                    </strong>
+
+                    <small id="profileEmail">
+                        Career Learner
+                    </small>
+
+                    <small id="profileEducation">
+                    </small>
+
+                </div>
+
 
             </div>
+
 
         </header>
 
 
-        <!-- Career Status -->
+
+        <!-- ===============================
+             CAREER STATUS
+        ================================= -->
 
         <section class="career-card">
 
+
             <div>
 
+
                 <span class="small-title">
+
                     YOUR CURRENT CAREER PATH
+
                 </span>
 
+
                 <h2 id="careerGoal">
+
                     Career Not Selected
+
                 </h2>
 
+
                 <p>
+
                     Build strong skills in Java, Spring Boot,
                     databases, frontend and real-world development.
+
                 </p>
 
+
                 <button id="continueRoadmapBtn">
+
                     Continue Roadmap →
+
                 </button>
 
+
             </div>
+
 
 
             <div class="readiness">
 
+
                 <div class="circle">
-                    <strong>32%</strong>
+
+                    <strong>
+                        0%
+                    </strong>
+
                 </div>
 
+
                 <span>
+
                     Career Readiness
+
                 </span>
 
+
             </div>
+
 
         </section>
 
 
-        <!-- Statistics -->
+
+        <!-- ===============================
+             STATISTICS
+        ================================= -->
 
         <section class="stats">
 
+
+            <!-- Skills -->
+
             <div class="stat-card">
+
 
                 <div class="stat-icon blue">
+
                     📚
+
                 </div>
 
+
                 <div>
-                    <span>Skills Completed</span>
-                    <strong id="skillsCompleted">0 / 0</strong>
+
+                    <span>
+                        Skills Completed
+                    </span>
+
+                    <strong id="skillsCompleted">
+                        0 / 0
+                    </strong>
+
                 </div>
+
 
             </div>
 
 
+
+            <!-- Assessments -->
+
             <div class="stat-card">
+
 
                 <div class="stat-icon green">
+
                     📝
+
                 </div>
 
+
                 <div>
-                    <span>Assessments</span>
-                    <strong>3 Completed</strong>
+
+                    <span>
+                        Assessments
+                    </span>
+
+                    <strong>
+                        3 Completed
+                    </strong>
+
                 </div>
+
 
             </div>
 
 
+
+            <!-- Projects -->
+
             <div class="stat-card">
+
 
                 <div class="stat-icon purple">
+
                     💻
+
                 </div>
 
+
                 <div>
-                    <span>Projects</span>
-                    <strong>1 / 4</strong>
+
+                    <span>
+                        Projects
+                    </span>
+
+                    <strong>
+                        1 / 4
+                    </strong>
+
                 </div>
+
 
             </div>
 
+
+
+            <!-- Overall Progress -->
 
             <div class="stat-card">
 
+
                 <div class="stat-icon orange">
+
                     🎯
+
                 </div>
+
 
                 <div>
-                    <span>Overall Progress</span>
-                    <strong id="dashboardProgress">0%</strong>
+
+                    <span>
+                        Overall Progress
+                    </span>
+
+                    <strong id="dashboardProgress">
+                        0%
+                    </strong>
+
                 </div>
 
+
             </div>
+
 
         </section>
 
 
-        <!-- Dashboard Grid -->
+
+        <!-- ===============================
+             DASHBOARD GRID
+        ================================= -->
 
         <section class="dashboard-grid">
 
 
-            <!-- Roadmap -->
+
+            <!-- ===============================
+                 LEARNING ROADMAP
+            ================================= -->
 
             <div class="dashboard-card">
 
+
                 <div class="card-header">
 
+
                     <div>
-                        <h3>Your Learning Roadmap</h3>
+
+                        <h3>
+                            Your Learning Roadmap
+                        </h3>
 
                         <p>
                             Continue where you left off.
                         </p>
+
                     </div>
 
-                    <a href="#">
+
+                    <a href="learning.html">
+
                         View All
+
                     </a>
 
-                </div>
-
-
-               <div class="roadmap-item">
-
-    <div class="roadmap-number active">
-        01
-    </div>
-
-    <div class="roadmap-content">
-
-        <strong id="roadmapModule1">
-            Java Programming
-        </strong>
-
-        <span>
-            OOP • Collections • Exception Handling
-        </span>
-
-        <div class="progress">
-            <div id="roadmapProgress1" style="width: 0%"></div>
-        </div>
-
-    </div>
-
-    <span class="percentage" id="roadmapPercentage1">
-        0%
-    </span>
-
-</div>
-
-
-                <div class="roadmap-item">
-
-    <div class="roadmap-number">
-        02
-    </div>
-
-    <div class="roadmap-content">
-
-        <strong id="roadmapModule2">
-            SQL & Database
-        </strong>
-
-        <span>
-            MySQL • Queries • Database Design
-        </span>
-
-        <div class="progress">
-            <div id="roadmapProgress2" style="width: 0%"></div>
-        </div>
-
-    </div>
-
-    <span class="percentage" id="roadmapPercentage2">
-        0%
-    </span>
-
-</div>
-
-
-                <div class="roadmap-item">
-
-                    <div class="roadmap-number">
-                        03
-                    </div>
-
-                    <div class="roadmap-content">
-
-                        <strong>Spring Boot</strong>
-
-                        <span>
-                            REST API • Spring • Backend
-                        </span>
-
-                        <div class="progress">
-                            <div style="width: 15%"></div>
-                        </div>
-
-                    </div>
-
-                    <span class="percentage">
-                        15%
-                    </span>
 
                 </div>
+
+
+
+                <!-- Dynamic Roadmap -->
+
+                <div id="dashboardRoadmap">
+
+                </div>
+
 
             </div>
 
 
-            <!-- Right Card -->
+
+            <!-- ===============================
+                 NEXT STEPS
+            ================================= -->
 
             <div class="dashboard-card">
 
+
                 <div class="card-header">
 
+
                     <div>
-                        <h3>Next Steps</h3>
+
+                        <h3>
+                            Next Steps
+                        </h3>
 
                         <p>
                             Recommended for you.
                         </p>
+
                     </div>
+
 
                 </div>
 
 
+
+                <!-- Next Step 1 -->
+
                 <div class="next-item">
 
+
                     <div class="next-icon">
+
                         📖
+
                     </div>
 
+
                     <div>
+
                         <strong>
                             Complete Java OOP
                         </strong>
 
                         <span>
-                            3 lessons remaining
+                            Continue your learning
                         </span>
+
                     </div>
 
-                    <button>
+
+                    <button
+                        onclick="window.location.href='learning.html'">
+
                         Start
+
                     </button>
+
 
                 </div>
 
 
+
+                <!-- Next Step 2 -->
+
                 <div class="next-item">
 
+
                     <div class="next-icon">
+
                         📝
+
                     </div>
 
+
                     <div>
+
                         <strong>
                             Take Java Assessment
                         </strong>
 
                         <span>
-                            15 questions
+                            Test your knowledge
                         </span>
+
                     </div>
 
+
                     <button>
+
                         Start
+
                     </button>
+
 
                 </div>
 
 
+
+                <!-- Next Step 3 -->
+
                 <div class="next-item">
 
+
                     <div class="next-icon">
+
                         💻
+
                     </div>
 
+
                     <div>
+
                         <strong>
                             Build Your First Project
                         </strong>
@@ -409,15 +569,22 @@
                         <span>
                             Beginner level
                         </span>
+
                     </div>
 
+
                     <button>
+
                         Start
+
                     </button>
+
 
                 </div>
 
+
             </div>
+
 
         </section>
 
@@ -425,88 +592,218 @@
     </main>
 
 
-</body>
 
-<script>
-    // ===============================
-    // GET LOGGED-IN USER
-    // ===============================
+    <!-- ===============================
+         CAREERAI JAVASCRIPT FILES
+    ================================= -->
 
-    const userData = localStorage.getItem("careerAIUser");
+    <script src="js/learning-data.js"></script>
 
-    // User login nahi hai
-    if (!userData) {
+    <script src="js/lesson-Data.js"></script>
 
-        window.location.href = "login.html";
-
-    } else {
-
-        const user = JSON.parse(userData);
-
-        // ===============================
-        // BASIC USER DATA
-        // ===============================
-
-        const userName = user.name || "Student";
-
-        document.querySelector(".topbar h1").textContent =
-            `Welcome, ${userName} 👋`;
-
-        document.querySelector(".profile strong").textContent =
-            userName;
-
-        document.querySelector(".profile small").textContent =
-            user.email;
-
-        document.querySelector(".profile-avatar").textContent =
-            userName.charAt(0).toUpperCase();
+    <script src="js/progress.js"></script>
 
 
-        // ===============================
-        // GET PROFILE FROM BACKEND
-        // ===============================
 
-        fetch(`http://127.0.0.1:5000/api/auth/profile/${user.id}`)
-            .then(response => response.json())
+    <!-- ===============================
+         DASHBOARD JAVASCRIPT
+    ================================= -->
+
+    <script>
+
+
+        // =================================
+        // GET LOGGED-IN USER
+        // =================================
+
+        const userData =
+            localStorage.getItem("careerAIUser");
+
+
+        if (!userData) {
+
+            window.location.href =
+                "login.html";
+
+        } else {
+
+
+            const user =
+                JSON.parse(userData);
+
+
+            const userName =
+                user.name || "Student";
+
+
+            // =================================
+            // TOPBAR
+            // =================================
+
+            const topbarTitle =
+                document.querySelector(
+                    ".topbar h1"
+                );
+
+
+            if (topbarTitle) {
+
+                topbarTitle.textContent =
+                    `Welcome, ${userName} 👋`;
+
+            }
+
+
+
+            // =================================
+            // PROFILE
+            // =================================
+
+            const profileName =
+                document.getElementById(
+                    "profileName"
+                );
+
+
+            const profileEmail =
+                document.getElementById(
+                    "profileEmail"
+                );
+
+
+            const profileAvatar =
+                document.querySelector(
+                    ".profile-avatar"
+                );
+
+
+            if (profileName) {
+
+                profileName.textContent =
+                    userName;
+
+            }
+
+
+            if (profileEmail) {
+
+                profileEmail.textContent =
+                    user.email || "";
+
+            }
+
+
+            if (profileAvatar) {
+
+                profileAvatar.textContent =
+                    userName
+                        .charAt(0)
+                        .toUpperCase();
+
+            }
+
+
+
+            // =================================
+            // LOAD PROFILE FROM BACKEND
+            // =================================
+
+            fetch(
+                `http://127.0.0.1:5000/api/auth/profile/${user.id}`
+            )
+
+            .then(response =>
+                response.json()
+            )
+
             .then(data => {
 
-                if (data.user) {
 
-    const profile = data.user;
+                if (!data.user) {
 
-    const careerGoal = document.getElementById("careerGoal");
+                    return;
 
-if (careerGoal) {
-    careerGoal.textContent =
-        profile.career_goal || "Career Not Selected";
-}
+                }
 
-    console.log("Profile loaded:", profile);
 
-    console.log("College:", profile.college);
-    console.log("Course:", profile.course);
-    console.log("Year:", profile.year);
+                const profile =
+                    data.user;
 
-    // Show profile information
-    const profileName = document.getElementById("profileName");
-    const profileEmail = document.getElementById("profileEmail");
-    const profileEducation = document.getElementById("profileEducation");
 
-    if (profileName) {
-        profileName.textContent = profile.name;
-    }
 
-    if (profileEmail) {
-        profileEmail.textContent = profile.email;
-    }
+                // Career Goal
 
-    if (profileEducation) {
-        profileEducation.textContent =
-            `${profile.college} • ${profile.course} • ${profile.year}`;
-    }
-}
+                const careerGoal =
+                    document.getElementById(
+                        "careerGoal"
+                    );
+
+
+                if (careerGoal) {
+
+                    careerGoal.textContent =
+                        profile.career_goal ||
+                        "Career Not Selected";
+
+                }
+
+
+
+                // Name
+
+                if (profileName) {
+
+                    profileName.textContent =
+                        profile.name ||
+                        userName;
+
+                }
+
+
+
+                // Email
+
+                if (profileEmail) {
+
+                    profileEmail.textContent =
+                        profile.email ||
+                        user.email ||
+                        "";
+
+                }
+
+
+
+                // Education
+
+                const profileEducation =
+                    document.getElementById(
+                        "profileEducation"
+                    );
+
+
+                if (profileEducation) {
+
+                    profileEducation.textContent =
+
+                        `${profile.college || ""} • ` +
+
+                        `${profile.course || ""} • ` +
+
+                        `${profile.year || ""}`;
+
+                }
+
+
+
+                console.log(
+                    "Profile loaded:",
+                    profile
+                );
+
 
             })
+
             .catch(error => {
 
                 console.error(
@@ -515,389 +812,571 @@ if (careerGoal) {
                 );
 
             });
-    }
 
-
-    // ===============================
-    // LOGOUT
-    // ===============================
-
-    const logoutLink =
-        document.querySelector(
-            ".sidebar-bottom a[href='login.html']"
-        );
-
-    if (logoutLink) {
-
-        logoutLink.addEventListener("click", function (event) {
-
-            event.preventDefault();
-
-            localStorage.removeItem("careerAIUser");
-
-            window.location.href = "login.html";
-
-        });
-    }
-
-
-// ===============================
-// CAREER READINESS SCORE
-// ===============================
-
-const readinessScore =
-    Number(
-        localStorage.getItem("careerReadinessScore") || 0
-    );
-
-const readinessCircle =
-    document.querySelector(".readiness .circle strong");
-
-if (readinessCircle) {
-
-    readinessCircle.textContent =
-        readinessScore + "%";
-}
-
-
-// Overall Progress
-
-const overallProgress =
-    document.querySelector(
-        ".stat-card:nth-child(4) strong"
-    );
-
-if (overallProgress) {
-
-    overallProgress.textContent =
-        readinessScore + "%";
-}
-
-// ===============================
-// DYNAMIC LEARNING PROGRESS
-// ===============================
-
-function getDashboardProgress() {
-
-    const selectedDomain =
-        localStorage.getItem("selectedDomain") || "java";
-
-    const domainData =
-        learningData[selectedDomain];
-
-    if (!domainData) {
-        return;
-    }
-
-    let totalLessons = 0;
-    let completedLessons = 0;
-
-    const lessonIds = [];
-
-    // Get lessons from lessonData
-    function collectLessons(data) {
-
-        if (!data || typeof data !== "object") {
-            return;
         }
 
-        for (const key in data) {
-
-            const item = data[key];
-
-            if (!item || typeof item !== "object") {
-                continue;
-            }
-
-            if (item.title) {
-
-                totalLessons++;
-
-                lessonIds.push(key);
-
-            } else {
-
-                collectLessons(item);
-            }
-        }
-    }
-
-    collectLessons(
-        lessonData[selectedDomain]
-    );
 
 
-    // Check completed lessons
-    lessonIds.forEach(lessonId => {
+        // =================================
+        // LOGOUT
+        // =================================
 
-        const completed =
-            localStorage.getItem(
-                `lesson_${selectedDomain}_${lessonId}_completed`
-            );
-
-        if (completed === "true") {
-
-            completedLessons++;
-        }
-    });
-
-
-    // Calculate progress
-    const progress =
-        totalLessons === 0
-            ? 0
-            : Math.round(
-                (completedLessons / totalLessons) * 100
+        const logoutLink =
+            document.querySelector(
+                ".sidebar-bottom a[href='login.html']"
             );
 
 
-    // Skills Completed
-    const skillsCompleted =
-        document.getElementById(
-            "skillsCompleted"
-        );
-
-    if (skillsCompleted) {
-
-        skillsCompleted.textContent =
-            completedLessons +
-            " / " +
-            totalLessons;
-    }
+        if (logoutLink) {
 
 
-    // Overall Progress
-    const dashboardProgress =
-        document.getElementById(
-            "dashboardProgress"
-        );
-
-    if (dashboardProgress) {
-
-        dashboardProgress.textContent =
-            progress + "%";
-    }
+            logoutLink.addEventListener(
+                "click",
+                function(event) {
 
 
-    console.log(
-        "Dashboard Learning Progress:",
-        completedLessons +
-        "/" +
-        totalLessons,
-        progress + "%"
-    );
-}
-    // ===============================
-// DYNAMIC ROADMAP
-// ===============================
+                    event.preventDefault();
 
-const continueRoadmapBtn =
-    document.getElementById("continueRoadmapBtn");
 
-if (continueRoadmapBtn) {
+                    localStorage.removeItem(
+                        "careerAIUser"
+                    );
 
-    continueRoadmapBtn.addEventListener("click", function () {
 
-        const userData =
-            localStorage.getItem("careerAIUser");
+                    window.location.href =
+                        "login.html";
 
-        if (!userData) {
-            window.location.href = "login.html";
-            return;
+
+                }
+            );
+
         }
 
-        const user = JSON.parse(userData);
 
-        fetch(`http://127.0.0.1:5000/api/auth/profile/${user.id}`)
-            .then(response => response.json())
-            .then(data => {
 
-                if (!data.user || !data.user.career_goal) {
+        // =================================
+        // CAREER READINESS
+        // =================================
 
-                    alert("Please select your career first.");
+        const readinessScore =
+            Number(
+                localStorage.getItem(
+                    "careerReadinessScore"
+                ) || 0
+            );
 
-                    window.location.href =
-                        "career-selection.html";
 
-                    return;
-                }
+        const readinessCircle =
+            document.querySelector(
+                ".readiness .circle strong"
+            );
 
-                const career =
-                    data.user.career_goal;
 
-                // Java
-                if (career === "Java Full Stack Developer") {
-                    window.location.href =
-                        "java-roadmap.html";
-                }
+        if (readinessCircle) {
 
-                // Python
-                else if (career === "Python Developer") {
-                    window.location.href =
-                        "python-roadmap.html";
-                }
+            readinessCircle.textContent =
+                readinessScore + "%";
 
-                // Data Analytics
-                else if (career === "Data Analytics") {
-                    window.location.href =
-                        "data-roadmap.html";
-                }
+        }
 
-                // AI / ML
-                else if (career === "AI / ML") {
-                    window.location.href =
-                        "ai-roadmap.html";
-                }
 
-                // Cyber Security
-                else if (career === "Cyber Security") {
-                    window.location.href =
-                        "cyber-roadmap.html";
-                }
 
-                else {
-                    alert("Roadmap not available yet.");
-                }
+        // =================================
+        // DASHBOARD LEARNING PROGRESS
+        // =================================
 
-            })
-            .catch(error => {
+        function getDashboardProgress() {
 
-                console.error(
-                    "Roadmap loading error:",
-                    error
+
+            const selectedDomain =
+                localStorage.getItem(
+                    "selectedDomain"
+                ) || "java";
+
+
+            if (
+                typeof lessonData === "undefined" ||
+                !lessonData[selectedDomain]
+            ) {
+
+                console.log(
+                    "Lesson data not found"
                 );
 
-                alert("Cannot connect to server.");
-            });
+                return;
 
-    });
-}
+            }
 
-// ===============================
-// ROADMAP MODULE PROGRESS
-// ===============================
 
-function getModuleProgress(domainKey, lessonIds) {
+            let totalLessons = 0;
 
-    let completed = 0;
+            let completedLessons = 0;
 
-    lessonIds.forEach(lessonId => {
 
-        const isCompleted =
-            localStorage.getItem(
-                `lesson_${domainKey}_${lessonId}_completed`
-            ) === "true";
 
-        if (isCompleted) {
-            completed++;
+            // =================================
+            // FIND ALL LESSONS
+            // =================================
+
+            function collectLessons(data) {
+
+
+                if (
+                    !data ||
+                    typeof data !== "object"
+                ) {
+
+                    return;
+
+                }
+
+
+                for (
+                    const key in data
+                ) {
+
+
+                    const item =
+                        data[key];
+
+
+                    if (
+                        !item ||
+                        typeof item !== "object"
+                    ) {
+
+                        continue;
+
+                    }
+
+
+                    if (item.title) {
+
+
+                        totalLessons++;
+
+
+                        const completed =
+                            localStorage.getItem(
+                                `lesson_${selectedDomain}_${key}_completed`
+                            );
+
+
+                        if (
+                            completed === "true"
+                        ) {
+
+                            completedLessons++;
+
+                        }
+
+
+                    } else {
+
+
+                        collectLessons(item);
+
+                    }
+
+                }
+
+            }
+
+
+            collectLessons(
+                lessonData[selectedDomain]
+            );
+
+
+
+            // =================================
+            // CALCULATE
+            // =================================
+
+            const progress =
+                totalLessons === 0
+                    ? 0
+                    : Math.round(
+                        (
+                            completedLessons /
+                            totalLessons
+                        ) * 100
+                    );
+
+
+
+            // =================================
+            // SKILLS COMPLETED
+            // =================================
+
+            const skillsCompleted =
+                document.getElementById(
+                    "skillsCompleted"
+                );
+
+
+            if (skillsCompleted) {
+
+                skillsCompleted.textContent =
+                    `${completedLessons} / ${totalLessons}`;
+
+            }
+
+
+
+            // =================================
+            // OVERALL PROGRESS
+            // =================================
+
+            const dashboardProgress =
+                document.getElementById(
+                    "dashboardProgress"
+                );
+
+
+            if (dashboardProgress) {
+
+                dashboardProgress.textContent =
+                    progress + "%";
+
+            }
+
+
+
+            console.log(
+                "Dashboard Learning Progress:",
+                `${completedLessons}/${totalLessons}`,
+                progress + "%"
+            );
+
         }
-    });
-
-    if (lessonIds.length === 0) {
-        return 0;
-    }
-
-    return Math.round(
-        (completed / lessonIds.length) * 100
-    );
-}
 
 
-// Java Programming
-function updateRoadmapProgress() {
 
-    const domain =
-        localStorage.getItem("selectedDomain") || "java";
+        // =================================
+        // DYNAMIC DASHBOARD ROADMAP
+        // =================================
 
-    if (domain !== "java") {
-        return;
-    }
+        function renderDashboardRoadmap() {
 
-    const javaProgrammingLessons = [
-        "programming-fundamentals",
-        "core-java",
-        "classes-objects",
-        "constructors",
-        "inheritance",
-        "polymorphism",
-        "encapsulation",
-        "abstraction"
-    ];
 
-    const progress =
-        getModuleProgress(
-            domain,
-            javaProgrammingLessons
-        );
+            const roadmapContainer =
+                document.getElementById(
+                    "dashboardRoadmap"
+                );
 
-    const progressBar =
-        document.getElementById(
-            "roadmapProgress1"
-        );
 
-    const percentage =
-        document.getElementById(
-            "roadmapPercentage1"
-        );
+            if (!roadmapContainer) {
 
-    if (progressBar) {
+                return;
 
-        progressBar.style.width =
-            progress + "%";
-    }
+            }
 
-    if (percentage) {
 
-        percentage.textContent =
-            progress + "%";
-    }
+            const selectedDomain =
+                localStorage.getItem(
+                    "selectedDomain"
+                ) || "java";
 
-    console.log(
-        "Java Programming Progress:",
-        progress + "%"
-    );
 
-// SQL & Database
-const sqlLessons = [
-    "sql"
-];
+            if (
+                typeof learningData === "undefined" ||
+                !learningData[selectedDomain]
+            ) {
 
-const sqlProgress =
-    getModuleProgress(
-        domain,
-        sqlLessons
-    );
+                roadmapContainer.innerHTML =
+                    "<p>Roadmap not available.</p>";
 
-const sqlProgressBar =
-    document.getElementById(
-        "roadmapProgress2"
-    );
+                return;
 
-const sqlPercentage =
-    document.getElementById(
-        "roadmapPercentage2"
-    );
+            }
 
-if (sqlProgressBar) {
 
-    sqlProgressBar.style.width =
-        sqlProgress + "%";
-}
+            const domainData =
+                learningData[selectedDomain];
 
-if (sqlPercentage) {
 
-    sqlPercentage.textContent =
-        sqlProgress + "%";
-}
+            if (
+                !domainData.modules
+            ) {
 
-console.log(
-    "SQL & Database Progress:",
-    sqlProgress + "%"
-);
-}
+                roadmapContainer.innerHTML =
+                    "<p>Roadmap not available.</p>";
 
-updateRoadmapProgress();
-getDashboardProgress();
-</script>
+                return;
+
+            }
+
+
+            roadmapContainer.innerHTML =
+                "";
+
+
+
+            domainData.modules.forEach(
+                (module, index) => {
+
+
+                    let progress = 0;
+
+
+                    // progress.js se module progress
+
+                    if (
+                        typeof getModuleProgress ===
+                        "function"
+                    ) {
+
+
+                        progress =
+                            getModuleProgress(
+                                selectedDomain,
+                                module.title
+                            );
+
+                    }
+
+
+
+                    const item =
+                        document.createElement(
+                            "div"
+                        );
+
+
+                    item.className =
+                        "roadmap-item";
+
+
+
+                    item.innerHTML = `
+
+                        <div class="roadmap-number ${
+                            progress > 0
+                                ? "active"
+                                : ""
+                        }">
+
+                            ${String(index + 1)
+                                .padStart(2, "0")}
+
+                        </div>
+
+
+                        <div class="roadmap-content">
+
+                            <strong>
+                                ${module.title}
+                            </strong>
+
+                            <span>
+                                ${
+                                    module.subtitle ||
+                                    "Continue learning"
+                                }
+                            </span>
+
+                            <div class="progress">
+
+                                <div
+                                    style="width: ${progress}%">
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <span class="percentage">
+
+                            ${progress}%
+
+                        </span>
+
+                    `;
+
+
+                    roadmapContainer.appendChild(
+                        item
+                    );
+
+                }
+            );
+
+        }
+
+
+
+        // =================================
+        // CONTINUE ROADMAP
+        // =================================
+
+        const continueRoadmapBtn =
+            document.getElementById(
+                "continueRoadmapBtn"
+            );
+
+
+        if (continueRoadmapBtn) {
+
+
+            continueRoadmapBtn.addEventListener(
+                "click",
+                function() {
+
+
+                    const userData =
+                        localStorage.getItem(
+                            "careerAIUser"
+                        );
+
+
+                    if (!userData) {
+
+                        window.location.href =
+                            "login.html";
+
+                        return;
+
+                    }
+
+
+                    const user =
+                        JSON.parse(userData);
+
+
+
+                    fetch(
+                        `http://127.0.0.1:5000/api/auth/profile/${user.id}`
+                    )
+
+                    .then(response =>
+                        response.json()
+                    )
+
+                    .then(data => {
+
+
+                        if (
+                            !data.user ||
+                            !data.user.career_goal
+                        ) {
+
+
+                            alert(
+                                "Please select your career first."
+                            );
+
+
+                            window.location.href =
+                                "career-selection.html";
+
+
+                            return;
+
+                        }
+
+
+                        const career =
+                            data.user.career_goal;
+
+
+
+                        if (
+                            career ===
+                            "Java Full Stack Developer"
+                        ) {
+
+
+                            window.location.href =
+                                "java-roadmap.html";
+
+
+                        } else if (
+                            career ===
+                            "Python Developer"
+                        ) {
+
+
+                            window.location.href =
+                                "python-roadmap.html";
+
+
+                        } else if (
+                            career ===
+                            "Data Analytics"
+                        ) {
+
+
+                            window.location.href =
+                                "data-roadmap.html";
+
+
+                        } else if (
+                            career ===
+                            "AI / ML"
+                        ) {
+
+
+                            window.location.href =
+                                "ai-roadmap.html";
+
+
+                        } else if (
+                            career ===
+                            "Cyber Security"
+                        ) {
+
+
+                            window.location.href =
+                                "cyber-roadmap.html";
+
+
+                        } else {
+
+
+                            alert(
+                                "Roadmap not available yet."
+                            );
+
+                        }
+
+
+                    })
+
+                    .catch(error => {
+
+
+                        console.error(
+                            "Roadmap loading error:",
+                            error
+                        );
+
+
+                        alert(
+                            "Cannot connect to server."
+                        );
+
+                    });
+
+                }
+            );
+
+        }
+
+
+
+        // =================================
+        // START DASHBOARD
+        // =================================
+
+        getDashboardProgress();
+
+        renderDashboardRoadmap();
+
+
+    </script>
+
+</body>
 
 </html>
