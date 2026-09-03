@@ -210,16 +210,6 @@ if (exampleLanguageElement) {
         lesson.exampleLanguage || "Code";
 }
 
-    /* ---------- CODE LANGUAGE ---------- */
-
-const exampleLanguage =
-    document.getElementById("exampleLanguage");
-
-if (exampleLanguage) {
-
-    exampleLanguage.textContent =
-        lesson.exampleLanguage || "Code";
-}
 
 
     /* ---------- EXPLANATION ---------- */
@@ -375,56 +365,46 @@ function checkAnswer(button, correct) {
         return;
     }
 
-
-    /* Only disable buttons of current dynamic quiz */
-
-    if (optionsContainer) {
-
-        const buttons =
-            optionsContainer.querySelectorAll(
-                "button"
-            );
-
-        buttons.forEach(option => {
-
-            option.disabled = true;
-
-        });
-    }
-
-
     if (correct) {
 
         button.classList.add("correct");
 
-
         if (quizResult) {
-
             quizResult.textContent =
-                "Correct! Well done.";
+                "Correct! Well done. 🎉";
 
             quizResult.style.color =
                 "#198754";
         }
 
+        /* Disable all options after correct answer */
+
+        if (optionsContainer) {
+
+            const buttons =
+                optionsContainer.querySelectorAll("button");
+
+            buttons.forEach(option => {
+                option.disabled = true;
+            });
+        }
 
         unlockCompleteButton();
-
 
     } else {
 
         button.classList.add("wrong");
 
+        button.disabled = true;
 
         if (quizResult) {
 
             quizResult.textContent =
-                "Incorrect. Try reviewing the lesson.";
+                "Incorrect ❌ Try another answer.";
 
             quizResult.style.color =
                 "#dc3545";
         }
-
 
         lockCompleteButton();
     }
@@ -485,11 +465,12 @@ function setupCompleteButton() {
             `practice_${domain}_${lessonId}_score`
         );
 
+
     if (completed === "true") {
 
         markCompletedUI();
 
-    } else if (practiceScore !== null) {
+    } else if (Number(practiceScore) >= 60) {
 
         unlockCompleteButton();
 
@@ -498,34 +479,34 @@ function setupCompleteButton() {
         lockCompleteButton();
     }
 
- completeButton.addEventListener(
-    "click",
-    function () {
 
-        if (!domain || !lessonId) {
-            return;
+    completeButton.addEventListener(
+        "click",
+        function () {
+
+            if (!domain || !lessonId) {
+                return;
+            }
+
+            localStorage.setItem(
+                `lesson_${domain}_${lessonId}_completed`,
+                "true"
+            );
+
+            markCompletedUI();
+
+            updateProgress();
+
+            updateCourseProgress();
+
+            setupLessonNavigation();
+
+            alert(
+                "Lesson completed! 🎉"
+            );
         }
-
-        localStorage.setItem(
-            `lesson_${domain}_${lessonId}_completed`,
-            "true"
-        );
-
-        markCompletedUI();
-
-        updateProgress();
-
-        updateCourseProgress();
-
-        setupLessonNavigation();
-
-        alert(
-            "Lesson completed! 🎉"
-        );
-    }
-);
+    );
 }
-
 
 /* ================= COMPLETED UI ================= */
 
