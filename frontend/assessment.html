@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<title>Assessment | CareerAI</title>
+
+<link
+    rel="stylesheet"
+    href="css/assessment.css"
+>
+
+
+</head>
+
+<body>
+
+<main class="assessment-container">
+
+
+    <!-- ================= HEADER ================= -->
+
+    <section class="assessment-header">
+
+        <span class="assessment-label">
+            CAREERAI • ASSESSMENT
+        </span>
+
+        <h1 id="assessmentTitle">
+            Skill Assessment
+        </h1>
+
+        <p id="assessmentDescription">
+            Test your knowledge and track your progress.
+        </p>
+
+    </section>
+
+
+    <!-- ================= INFO ================= -->
+
+    <section class="assessment-info">
+
+        <div class="info-item">
+
+            <span>
+                📝
+            </span>
+
+            <div>
+
+                <strong id="questionCount">
+                    0 Questions
+                </strong>
+
+                <small>
+                    Assessment Questions
+                </small>
+
+            </div>
+
+        </div>
+
+
+        <div class="info-item">
+
+            <span>
+                🎯
+            </span>
+
+            <div>
+
+                <strong>
+                    60%
+                </strong>
+
+                <small>
+                    Passing Score
+                </small>
+
+            </div>
+
+        </div>
+
+
+        <div class="info-item">
+
+            <span>
+                ⏱
+            </span>
+
+            <div>
+
+                <strong>
+                    No Time Limit
+                </strong>
+
+                <small>
+                    Complete at your pace
+                </small>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= START CARD ================= -->
+
+    <section
+        class="start-card"
+        id="startCard"
+    >
+
+        <h2>
+            Ready to Test Your Skills?
+        </h2>
+
+        <p>
+            Answer the questions and score at least
+            60% to pass the assessment.
+        </p>
+
+        <button id="startAssessment">
+
+            Start Assessment →
+
+        </button>
+
+    </section>
+
+
+    <!-- ================= QUESTION CARD ================= -->
+
+    <section
+        class="question-card"
+        id="questionCard"
+    >
+
+        <div class="question-top">
+
+            <span id="questionNumber">
+                Question 1
+            </span>
+
+            <span id="progressText">
+                1 / 10
+            </span>
+
+        </div>
+
+
+        <div class="progress">
+
+            <div
+                id="progressBar"
+                style="width:0%;"
+            ></div>
+
+        </div>
+
+
+        <h2 id="question">
+            Loading question...
+        </h2>
+
+
+        <div
+            id="options"
+            class="options"
+        ></div>
+
+
+        <p id="result"></p>
+
+
+        <button
+            id="nextQuestion"
+            disabled
+        >
+
+            Next Question →
+
+        </button>
+
+    </section>
+
+
+    <!-- ================= RESULT CARD ================= -->
+
+    <section
+        class="result-card"
+        id="resultCard"
+    >
+
+        <div class="result-icon">
+
+            🎉
+
+        </div>
+
+
+        <h2>
+            Assessment Completed!
+        </h2>
+
+
+        <p>
+            Your Score
+        </p>
+
+
+        <strong
+            id="finalScore"
+        >
+
+            0%
+
+        </strong>
+
+
+        <p
+            id="resultMessage"
+        >
+
+        </p>
+
+
+        <div class="result-buttons">
+
+            <button
+                id="retryAssessment"
+            >
+
+                Try Again
+
+            </button>
+
+
+            <button
+                id="backToLearning"
+            >
+
+                Back to Learning
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+</main>
+
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script src="js/assessment-data.js"></script>
+
+<script src="js/assessment.js"></script>
+
+</body>
+
+</html>
