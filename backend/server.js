@@ -6,6 +6,7 @@ const db = require("./db");
 const authRoutes = require("./routes/auth");
 const progressRoutes = require("./routes/progress");
 const profileRoutes = require("./routes/profile");
+const applicationsRoutes = require("./routes/applications");
 
 const app = express();
 
@@ -17,6 +18,7 @@ app.use(express.json());
 app.use("/api/auth", authRoutes);
 app.use("/api/progress", progressRoutes);
 app.use("/api/profile", profileRoutes);
+app.use("/api/applications", applicationsRoutes);
 
 // Test route
 app.get("/", (req, res) => {

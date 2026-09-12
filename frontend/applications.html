@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CareerAI - Application Tracker</title>
+
+    <link rel="stylesheet" href="applications.css">
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="logo">🚀 CareerAI</div>
+
+        <a href="dashboard.html" class="back-btn">
+            ← Dashboard
+        </a>
+    </nav>
+
+    <main class="container">
+
+        <section class="hero">
+            <h1>Job Application Tracker</h1>
+
+            <p>
+                Track your internships and job applications in one place.
+            </p>
+        </section>
+
+
+        <!-- Statistics -->
+
+        <section class="stats">
+
+            <div class="stat-card">
+                <span>📋</span>
+                <div>
+                    <h3 id="totalApplications">0</h3>
+                    <p>Total Applications</p>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <span>🎯</span>
+                <div>
+                    <h3 id="interviewCount">0</h3>
+                    <p>Interviews</p>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <span>⭐</span>
+                <div>
+                    <h3 id="selectedCount">0</h3>
+                    <p>Selected</p>
+                </div>
+            </div>
+
+        </section>
+
+
+        <!-- Add Application -->
+
+        <section class="card">
+
+            <h2>➕ Add Job Application</h2>
+
+            <form id="applicationForm">
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+                        <label>Company Name</label>
+
+                        <input
+                            type="text"
+                            id="companyName"
+                            placeholder="e.g. TCS"
+                            required
+                        >
+                    </div>
+
+
+                    <div class="form-group">
+                        <label>Job Role</label>
+
+                        <input
+                            type="text"
+                            id="jobRole"
+                            placeholder="e.g. Java Developer Intern"
+                            required
+                        >
+                    </div>
+
+
+                    <div class="form-group">
+                        <label>Job Link</label>
+
+                        <input
+                            type="url"
+                            id="jobLink"
+                            placeholder="https://..."
+                        >
+                    </div>
+
+
+                    <div class="form-group">
+                        <label>Applied Date</label>
+
+                        <input
+                            type="date"
+                            id="appliedDate"
+                        >
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>Status</label>
+
+                        <select id="status">
+
+                            <option value="Applied">
+                                Applied
+                            </option>
+
+                            <option value="Shortlisted">
+                                Shortlisted
+                            </option>
+
+                            <option value="Interview">
+                                Interview
+                            </option>
+
+                            <option value="Selected">
+                                Selected
+                            </option>
+
+                            <option value="Rejected">
+                                Rejected
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group full-width">
+
+                        <label>Notes</label>
+
+                        <textarea
+                            id="notes"
+                            placeholder="Add notes about this application..."
+                        ></textarea>
+
+                    </div>
+
+                </div>
+
+
+                <button type="submit" class="add-btn">
+                    Add Application
+                </button>
+
+            </form>
+
+        </section>
+
+
+        <!-- Applications -->
+
+        <section class="applications-section">
+
+            <div class="section-header">
+
+                <h2>📋 My Applications</h2>
+
+                <button
+                    id="refreshBtn"
+                    class="refresh-btn"
+                >
+                    🔄 Refresh
+                </button>
+
+            </div>
+
+
+            <div id="applicationsList">
+
+                <div class="empty-state">
+                    Loading applications...
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+    </main>
+<!-- Edit Application Modal -->
+
+<div id="editModal" class="modal hidden">
+
+    <div class="modal-content">
+
+        <div class="modal-header">
+            <h2>✏️ Edit Application</h2>
+
+            <button id="closeModalBtn" class="close-btn">
+                ×
+            </button>
+        </div>
+
+        <form id="editForm">
+
+            <input type="hidden" id="editApplicationId">
+
+            <div class="form-grid">
+
+                <div class="form-group">
+                    <label>Company Name</label>
+
+                    <input
+                        type="text"
+                        id="editCompanyName"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label>Job Role</label>
+
+                    <input
+                        type="text"
+                        id="editJobRole"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label>Job Link</label>
+
+                    <input
+                        type="url"
+                        id="editJobLink"
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label>Applied Date</label>
+
+                    <input
+                        type="date"
+                        id="editAppliedDate"
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label>Status</label>
+
+                    <select id="editStatus">
+
+                        <option value="Applied">
+                            Applied
+                        </option>
+
+                        <option value="Shortlisted">
+                            Shortlisted
+                        </option>
+
+                        <option value="Interview">
+                            Interview
+                        </option>
+
+                        <option value="Selected">
+                            Selected
+                        </option>
+
+                        <option value="Rejected">
+                            Rejected
+                        </option>
+
+                    </select>
+                </div>
+
+                <div class="form-group full-width">
+
+                    <label>Notes</label>
+
+                    <textarea
+                        id="editNotes"
+                    ></textarea>
+
+                </div>
+
+            </div>
+
+            <div class="modal-actions">
+
+                <button
+                    type="button"
+                    id="cancelEditBtn"
+                    class="cancel-btn"
+                >
+                    Cancel
+                </button>
+
+                <button
+                    type="submit"
+                    class="save-btn"
+                >
+                    💾 Save Changes
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+    <script src="applications.js"></script>
+
+</body>
+</html>
