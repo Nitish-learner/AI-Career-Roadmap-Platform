@@ -296,11 +296,11 @@ async function deleteApplication(applicationId) {
     try {
 
         const response = await fetch(
-            `${API_URL}/${applicationId}`,
-            {
-                method: "DELETE"
-            }
-        );
+    `${API_URL}/${applicationId}?user_id=${userId}`,
+    {
+        method: "DELETE"
+    }
+);
 
 
         const result = await response.json();
@@ -445,26 +445,28 @@ editForm.addEventListener("submit", async function(event) {
     const applicationId =
         document.getElementById("editApplicationId").value;
 
-    const updatedApplication = {
+  const updatedApplication = {
 
-        company_name:
-            document.getElementById("editCompanyName").value.trim(),
+    user_id: userId,
 
-        job_role:
-            document.getElementById("editJobRole").value.trim(),
+    company_name:
+        document.getElementById("editCompanyName").value.trim(),
 
-        job_link:
-            document.getElementById("editJobLink").value.trim(),
+    job_role:
+        document.getElementById("editJobRole").value.trim(),
 
-        applied_date:
-            document.getElementById("editAppliedDate").value,
+    job_link:
+        document.getElementById("editJobLink").value.trim(),
 
-        status:
-            document.getElementById("editStatus").value,
+    applied_date:
+        document.getElementById("editAppliedDate").value,
 
-        notes:
-            document.getElementById("editNotes").value.trim()
-    };
+    status:
+        document.getElementById("editStatus").value,
+
+    notes:
+        document.getElementById("editNotes").value.trim()
+};
 
 
     try {

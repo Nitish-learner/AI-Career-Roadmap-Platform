@@ -77,15 +77,13 @@ router.post("/", (req, res) => {
 // Update application
 router.put("/:id", (req, res) => {
     const applicationId = req.params.id;
+    const { user_id, company_name, job_role, job_link, applied_date, status, notes } = req.body;
 
-    const {
-        company_name,
-        job_role,
-        job_link,
-        applied_date,
-        status,
-        notes
-    } = req.body;
+    if (!user_id || !company_name || !job_role) {
+        return res.status(400).json({
+            message: "User ID, company name and job role are required"
+        });
+    }
 
     const sql = `
         UPDATE applications
@@ -95,7 +93,7 @@ router.put("/:id", (req, res) => {
             applied_date = ?,
             status = ?,
             notes = ?
-        WHERE id = ?
+        WHERE id = ? AND user_id = ?
     `;
 
     const values = [
@@ -105,7 +103,8 @@ router.put("/:id", (req, res) => {
         applied_date || null,
         status || "Applied",
         notes || null,
-        applicationId
+        applicationId,
+        user_id
     ];
 
     db.query(sql, values, (err, result) => {
@@ -116,23 +115,46 @@ router.put("/:id", (req, res) => {
             });
         }
 
+        if (result.affectedRows === 0) {
+            return res.status(404).json({
+                message: "Application not found or access denied"
+            });
+        }
+
         res.json({
             message: "Application updated successfully"
         });
     });
 });
 
+
 // Delete application
 router.delete("/:id", (req, res) => {
     const applicationId = req.params.id;
+    const userId = req.query.user_id;
 
-    const sql = "DELETE FROM applications WHERE id = ?";
+    if (!userId) {
+        return res.status(400).json({
+            message: "User ID is required"
+        });
+    }
 
-    db.query(sql, [applicationId], (err, result) => {
+    const sql = `
+        DELETE FROM applications
+        WHERE id = ? AND user_id = ?
+    `;
+
+    db.query(sql, [applicationId, userId], (err, result) => {
         if (err) {
             console.error("Error deleting application:", err);
             return res.status(500).json({
                 message: "Failed to delete application"
+            });
+        }
+
+        if (result.affectedRows === 0) {
+            return res.status(404).json({
+                message: "Application not found or access denied"
             });
         }
 
@@ -141,5 +163,7 @@ router.delete("/:id", (req, res) => {
         });
     });
 });
+
+module.exports = router;
 
 module.exports = router;
