@@ -2,7 +2,15 @@ const API_URL = "http://localhost:5000/api/applications";
 
 // Temporary test user
 // Baad me isko CareerAI ke actual logged-in user se connect karenge.
-const userId = 1;
+const storedUser = localStorage.getItem("careerAIUser");
+
+if (!storedUser) {
+    alert("Please login first.");
+    window.location.href = "login.html";
+}
+
+const user = JSON.parse(storedUser);
+const userId = user.id;
 
 let currentApplications = [];
 
